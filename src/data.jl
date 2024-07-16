@@ -197,5 +197,9 @@ julia> golden_cross = chart(
 ```
 
 """
-function chart(name, tf; indicators::Vector=[], visuals::Vector{Dict}=[])
+function chart(name, tf; indicators::Vector=[], visuals::Vector=[])
+    df = DataFrame(df_fields(indicators))
+    ts = missing
+    candle = missing
+    return Chart(;name, tf, df, indicators, visuals, ts, candle)
 end
