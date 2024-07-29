@@ -4,6 +4,7 @@ denominated_price(any::Any) = false # If we don't know, assume false.
 denominated_price(sma::SMA) = true
 denominated_price(rsi::RSI) = false
 denominated_price(bb::BB)   = true
+denominated_price(srsi::StochRSI) = false
 
 
 """    visualize(any::Any)
@@ -67,6 +68,34 @@ function visualize(rsi::RSI, opts, df::DataFrame)
         [df[!, name][start:end]...];
         kwargs...
     )
+end
+
+function visualize(srsi::StochRSI, opts, df::DataFrame)
+    start = srsi.stoch_period
+    k_defaults = Dict(
+        :label_name => "K",
+        :line_color => "#2962FF",
+        :line_width => 1
+    )
+    k_kwargs = merge(k_defaults, opts[:k])
+    d_defaults = Dict(
+        :label_name => "D",
+        :line_color => "#FF6D00",
+        :line_width => 1
+    )
+    d_kwargs = merge(d_defaults, opts[:d])
+    [
+        lwc_line(
+            df.ts[start:end],
+            [df[!, :stochrsi_k][start:end]...];
+            k_kwargs...
+        ),
+        lwc_line(
+            df.ts[start:end],
+            [df[!, :stochrsi_d][start:end]...];
+            d_kwargs...
+        )
+    ]
 end
 
 function visualize(bb::BB, opts, df::DataFrame)
