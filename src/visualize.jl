@@ -2,6 +2,7 @@
 # - If an indicator is not denominated in price, it gets plotted in its own panel.
 denominated_price(any::Any) = false # If we don't know, assume false.
 denominated_price(sma::SMA) = true
+denominated_price(ema::EMA) = true
 denominated_price(rsi::RSI) = false
 denominated_price(bb::BB)   = true
 denominated_price(srsi::StochRSI) = false
