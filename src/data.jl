@@ -38,6 +38,17 @@ function indicator_fields_count(ind::OnlineTechnicalIndicators.TechnicalIndicato
     @chain ind typeof fieldtypes (ts -> ts[1])(_) getproperty(_, :b) fieldcount
 end
 
+"""
+Extract values from an indicator instance.
+"""
+function indicator_fields_values(ind::OnlineTechnicalIndicators.TechnicalIndicatorMultiOutput)
+    fields = indicator_fields(ind)
+    if ismissing(ind.value)
+        fill(missing, length(fields))
+    else
+        map((k) -> ind.value[k], fields)
+    end
+end
 
 function df_fields(indicators)
     base = (:ts, :o, :h, :l, :c, :v)
@@ -99,7 +110,7 @@ function push_new_candle!(chart::Chart, c::Candle)
             if ismissing(ind.value)
                 return repeat([missing], indicator_fields_count(ind))
             else
-                return [ind.value.lower, ind.value.central, ind.value.upper]
+                return indicator_fields_values(ind)
             end
         else
             return ind.value
