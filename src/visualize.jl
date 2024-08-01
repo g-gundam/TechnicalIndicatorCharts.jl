@@ -3,6 +3,7 @@
 denominated_price(any::Any) = false # If we don't know, assume false.
 denominated_price(sma::SMA) = true
 denominated_price(ema::EMA) = true
+denominated_price(hma::HMA) = true
 denominated_price(rsi::RSI) = false
 denominated_price(bb::BB)   = true
 denominated_price(srsi::StochRSI) = false
@@ -44,6 +45,22 @@ function visualize(ema::EMA, opts, df::DataFrame)
     name = indicator_fields(ema)[1]
     defaults = Dict(
         :label_name => "EMA",
+        :line_color => "#B84A62",
+        :line_width => 2
+    )
+    kwargs = merge(defaults, Dict(opts))
+    return lwc_line(
+        df.ts[start:end],
+        [df[!, name][start:end]...];
+        kwargs...
+    )
+end
+
+function visualize(HMA::HMA, opts, df::DataFrame)
+    start = HMA.period
+    name = indicator_fields(HMA)[1]
+    defaults = Dict(
+        :label_name => "HMA",
         :line_color => "#B84A62",
         :line_width => 2
     )
