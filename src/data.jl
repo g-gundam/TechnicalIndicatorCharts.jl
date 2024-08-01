@@ -42,11 +42,12 @@ end
 Extract values from an indicator instance.
 """
 function indicator_fields_values(ind::OnlineTechnicalIndicators.TechnicalIndicatorMultiOutput)
-    fields = indicator_fields(ind)
-    if ismissing(ind.value)
-        fill(missing, length(fields))
+    fields = @chain ind typeof fieldtypes (ts -> ts[1])(_) getproperty(_, :b) fieldnames
+    if typeof(ind.value).parameters[1] == Missing
+        repeat([missing], length(fields))
     else
-        map((k) -> ind.value[k], fields)
+        #@info fields typeof(ind.value) ind.value
+        map((k) -> getproperty(ind.value, k), fields)
     end
 end
 

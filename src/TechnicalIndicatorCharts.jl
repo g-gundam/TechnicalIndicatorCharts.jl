@@ -48,6 +48,8 @@ include("./helpers.jl")
 include("./data.jl")
 export update!
 export chart
+export indicator_fields
+export indicator_fields_values
 
 # visualization
 # - a function for each indicator
