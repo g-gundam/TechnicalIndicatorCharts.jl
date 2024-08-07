@@ -89,6 +89,8 @@ function visualize(rsi::RSI, opts, df::DataFrame)
     )
 end
 
+# TODO: There's probably a fancy way to wrap the collection in a type
+# so that copying the data via map could be avoided.
 function replace_missing_with(val, collection)
     map(n -> if ismissing(n) val else n end, collection)
 end
@@ -112,7 +114,9 @@ function visualize(srsi::StochRSI, opts, df::DataFrame)
     d_start = findfirst(!ismissing, df[!, :stochrsi_d])
     @info "start" k_start d_start
     k = replace_missing_with(0, df[!, :stochrsi_k])
+    #k = Padded(df[!, :stochrsi_k])
     d = replace_missing_with(0, df[!, :stochrsi_d])
+    #d = Padded(df[!, :stochrsi_d])
     [
         lwc_line(
             df.ts,

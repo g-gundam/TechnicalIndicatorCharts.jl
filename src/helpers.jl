@@ -49,3 +49,15 @@ function ismultioutput(i::TechnicalIndicator)
     t = typeof(i)
     OnlineTechnicalIndicators.ismultioutput(t.name.wrapper)
 end
+
+struct Padded{T<:AbstractArray}
+    a::T
+end
+
+function Base.getindex(p::Padded, i::Int)
+    if ismissing(p.a[i])
+        0.0
+    else
+        p.a[i]
+    end
+end
