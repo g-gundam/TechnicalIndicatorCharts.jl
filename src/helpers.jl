@@ -50,7 +50,7 @@ function ismultioutput(i::TechnicalIndicator)
     OnlineTechnicalIndicators.ismultioutput(t.name.wrapper)
 end
 
-struct Padded{T<:AbstractArray}
+struct Padded{T<:AbstractVector} <: AbstractVector{T}
     a::T
 end
 
