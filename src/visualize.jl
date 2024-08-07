@@ -81,36 +81,47 @@ function visualize(rsi::RSI, opts, df::DataFrame)
         :line_width => 3
     )
     kwargs = merge(defaults, Dict(opts))
+    rsi = replace_missing_with(0, df[!, name])
     return lwc_line(
-        df.ts[start:end],
-        [df[!, name][start:end]...];
+        df.ts,
+        rsi;
         kwargs...
     )
 end
 
+function replace_missing_with(val, collection)
+    map(n -> if ismissing(n) val else n end, collection)
+end
+
 function visualize(srsi::StochRSI, opts, df::DataFrame)
-    start = srsi.stoch_period
     k_defaults = Dict(
         :label_name => "K",
         :line_color => "#2962FF",
-        :line_width => 1
+        :line_width => 1,
+        :line_type  => LWC_CURVED
     )
     k_kwargs = merge(k_defaults, opts[:k])
+    k_start = findfirst(!ismissing, df[!, :stochrsi_k])
     d_defaults = Dict(
         :label_name => "D",
         :line_color => "#FF6D00",
-        :line_width => 1
+        :line_width => 1,
+        :line_type  => LWC_CURVED,
     )
     d_kwargs = merge(d_defaults, opts[:d])
+    d_start = findfirst(!ismissing, df[!, :stochrsi_d])
+    @info "start" k_start d_start
+    k = replace_missing_with(0, df[!, :stochrsi_k])
+    d = replace_missing_with(0, df[!, :stochrsi_d])
     [
         lwc_line(
-            df.ts[start:end],
-            [df[!, :stochrsi_k][start:end]...];
+            df.ts,
+            k;
             k_kwargs...
         ),
         lwc_line(
-            df.ts[start:end],
-            [df[!, :stochrsi_d][start:end]...];
+            df.ts,
+            d;
             d_kwargs...
         )
     ]
@@ -164,11 +175,27 @@ function visualize(df::DataFrame, opts)
     )
 end
 
+"""    make_panel(plots::Vector)
+
+Wrap a Vector of LWCCharts in a panel.
+"""
+function make_panel(plots::Vector)
+    lwc_panel(plots...)
+end
+
+"""    make_panel(chart::LWCChart)
+
+Wrap a single LWCChart in a panel.
+"""
+function make_panel(chart::LWCChart)
+    lwc_panel(chart)
+end
+
 """    visualize(chart::Chart)
 
 Return an LWCLayout that visualizes all the components in chart appropriately.
 """
-function visualize(chart::Chart)
+function visualize(chart::Chart; min_height=550)
     opts = Dict(
         :label_name     => "$(chart.name) $(abbrev(chart.tf))",
         :up_color       => "#52a49a",
@@ -190,13 +217,10 @@ function visualize(chart::Chart)
                 push!(plots_price, p)
             end
         else
-            if typeof(p) <: Vector
-                push!(plots_other, p...)
-            else
-                push!(plots_other, p)
-            end
+            push!(plots_other, p)
         end
     end
+    @debug "plots_other" plots_other
     return lwc_layout(
         # indicators denominated in price all go in one panel along with the candlesticks.
         lwc_panel(
@@ -204,7 +228,7 @@ function visualize(chart::Chart)
             plots_price...
         ),
         # indicators that are not denominated in price get their own panel.
-        lwc_panel.(plots_other)...;
-        
+        make_panel.(plots_other)...;
+        min_height
     )
 end
