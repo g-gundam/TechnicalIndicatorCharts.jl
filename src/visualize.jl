@@ -56,9 +56,9 @@ function visualize(ema::EMA, opts, df::DataFrame)
     )
 end
 
-function visualize(HMA::HMA, opts, df::DataFrame)
-    start = HMA.period
-    name = indicator_fields(HMA)[1]
+function visualize(hma::HMA, opts, df::DataFrame)
+    start = hma.period
+    name = indicator_fields(hma)[1]
     defaults = Dict(
         :label_name => "HMA $(hma.period)",
         :line_color => "#B84A62",
