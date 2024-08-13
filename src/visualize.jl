@@ -28,7 +28,7 @@ function visualize(sma::SMA, opts, df::DataFrame)
     start = sma.period
     name = indicator_fields(sma)[1]
     defaults = Dict(
-        :label_name => "SMA",
+        :label_name => "SMA $(sma.period)",
         :line_color => "#B84A62",
         :line_width => 2
     )
@@ -44,7 +44,7 @@ function visualize(ema::EMA, opts, df::DataFrame)
     start = ema.period
     name = indicator_fields(ema)[1]
     defaults = Dict(
-        :label_name => "EMA",
+        :label_name => "EMA $(ema.period)",
         :line_color => "#B84A62",
         :line_width => 2
     )
@@ -60,7 +60,7 @@ function visualize(HMA::HMA, opts, df::DataFrame)
     start = HMA.period
     name = indicator_fields(HMA)[1]
     defaults = Dict(
-        :label_name => "HMA",
+        :label_name => "HMA $(hma.period)",
         :line_color => "#B84A62",
         :line_width => 2
     )
@@ -76,7 +76,7 @@ function visualize(rsi::RSI, opts, df::DataFrame)
     start = rsi.period + 1
     name = indicator_fields(rsi)[1]
     defaults = Dict(
-        :label_name => "RSI",
+        :label_name => "RSI $(rsi.period)",
         :line_color => "#B84A62",
         :line_width => 3
     )
@@ -97,7 +97,7 @@ end
 
 function visualize(srsi::StochRSI, opts, df::DataFrame)
     k_defaults = Dict(
-        :label_name => "K",
+        :label_name => "StochRSI K",
         :line_color => "#2962FF",
         :line_width => 1,
         :line_type  => LWC_CURVED
@@ -105,7 +105,7 @@ function visualize(srsi::StochRSI, opts, df::DataFrame)
     k_kwargs = merge(k_defaults, opts[:k])
     k_start = findfirst(!ismissing, df[!, :stochrsi_k])
     d_defaults = Dict(
-        :label_name => "D",
+        :label_name => "StochRSI D",
         :line_color => "#FF6D00",
         :line_width => 1,
         :line_type  => LWC_CURVED,
