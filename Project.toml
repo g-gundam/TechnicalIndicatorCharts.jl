@@ -15,6 +15,7 @@ ReTest = "e0db7c4e-2690-44b9-bad6-7687da720f89"
 
 [compat]
 julia = "1"
+NanoDates = "0.3, 1"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
