@@ -112,7 +112,7 @@ function visualize(srsi::StochRSI, opts, df::DataFrame)
     )
     d_kwargs = merge(d_defaults, opts[:d])
     d_start = findfirst(!ismissing, df[!, :stochrsi_d])
-    @info "start" k_start d_start
+    #@info "start" k_start d_start
     k = replace_missing_with(0, df[!, :stochrsi_k])
     #k = Padded(df[!, :stochrsi_k])
     d = replace_missing_with(0, df[!, :stochrsi_d])
@@ -199,7 +199,7 @@ end
 
 Return an LWCLayout that visualizes all the components in chart appropriately.
 """
-function visualize(chart::Chart; min_height=550)
+function visualize(chart::Chart; min_height=550, mode=LWC_LOGARITHMIC)
     opts = Dict(
         :label_name     => "$(chart.name) $(abbrev(chart.tf))",
         :up_color       => "#52a49a",
@@ -215,12 +215,14 @@ function visualize(chart::Chart; min_height=550)
     for (p, d) in zip(plots, denom) # If there's a better way, let me know.
         ismissing(p) && continue
         if d == 1
+            # denominated in price -- I couldn't use polymorphism here.
             if typeof(p) <: Vector
                 push!(plots_price, p...)
             else
                 push!(plots_price, p)
             end
         else
+            # not denominated in price
             push!(plots_other, p)
         end
     end
@@ -229,7 +231,8 @@ function visualize(chart::Chart; min_height=550)
         # indicators denominated in price all go in one panel along with the candlesticks.
         lwc_panel(
             candlesticks,
-            plots_price...
+            plots_price...;
+            mode
         ),
         # indicators that are not denominated in price get their own panel.
         make_panel.(plots_other)...;
