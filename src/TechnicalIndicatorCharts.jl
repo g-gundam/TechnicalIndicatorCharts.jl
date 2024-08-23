@@ -8,6 +8,7 @@ using DataFramesMeta
 using OnlineTechnicalIndicators
 using OnlineTechnicalIndicators: TechnicalIndicator
 using LightweightCharts
+using DocStringExtensions
 
 # Write your package code here.
 # structs
