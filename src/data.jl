@@ -38,7 +38,8 @@ function indicator_fields_count(ind::OnlineTechnicalIndicators.TechnicalIndicato
     @chain ind typeof fieldtypes (ts -> ts[1])(_) getproperty(_, :b) fieldcount
 end
 
-"""
+"""$(SIGNATURES)
+
 Extract values from an indicator instance.
 """
 function indicator_fields_values(ind::OnlineTechnicalIndicators.TechnicalIndicatorMultiOutput)
@@ -58,9 +59,14 @@ function df_fields(indicators)
     map(k -> ifelse(k == :ts, k=>DateTime[], k=>Union{Missing,Float64}[]), combined)
 end
 
+"""$(SIGNATURES)
+
+Extract values out of an indicators value struct.  This is only intended to be used
+for indicators that emit multiple values per tick.
+"""
 function extract_value(value)
-    # - value is a Value like BBVal, but I couldn't find a supertype that encompassed all indicator values.
-    # - it's only intended to be used indicators that emit multiple values per tick.
+    # - value is a Value struct like BBVal, but I couldn't find a supertype that encompassed all indicator values.
+    # - That's why no type was specified in the method params.
     fnames = @chain value begin
         typeof
         fieldnames
@@ -72,11 +78,11 @@ function extract_value(value)
     res
 end
 
-"""    merge_candle!(last_candle, c)
+"""$(SIGNATURES)
 
 If last candle is not provided, construct a new candle with the given OHLCV data.
 If last candle is provided, mutate last_candle such that it's HLCV are updated.
-It's assumed that last_candle and c have the same timestamp.
+When tw candles are passed in, it's assumed they have the same timestamp.
 """
 function merge_candle!(last_candle::Union{Missing, Candle}, c::Union{Candle,DataFrameRow})
     if ismissing(last_candle)
@@ -94,7 +100,8 @@ function flatten_indicator_values(vs)
     Iterators.flatmap(x -> ifelse(ismissing(x), (missing,), x), vs)
 end
 
-"""
+"""$(SIGNATURES)
+
 This is meant to be called on timeframe boundaries to onto the chart's
 dataframe.  It also does indicator calculation at this time.
 """
@@ -129,10 +136,10 @@ function push_new_candle!(chart::Chart, c::Candle)
     ))
 end
 
-"""
-This is for internal housekeeping inside chart.candle.
-This happens when we're away from a chart.tf boundary.
-This doesn't go into a DataFrame.
+"""$(SIGNATURES)
+
+This updates the HLCV values of the last row of the chart's DataFrame
+when we're not at a chart.tf boundary.
 """
 function update_last_candle!(chart::Chart, c::Candle)
     row = last(chart.df)
@@ -142,7 +149,10 @@ function update_last_candle!(chart::Chart, c::Candle)
     row.v = c.v
 end
 
-# I need a way to feed it candles and indicators
+""" $(SIGNATURES)
+
+Update a chart with a candle.
+"""
 function update!(chart::Chart, c::Candle)
     # aggregation when tf > Minute(1)
     # fit! on series after candle close only
@@ -207,7 +217,6 @@ julia> golden_cross = chart(
     ]
 )
 ```
-
 """
 function chart(name, tf; indicators::Vector=[], visuals::Vector{<:Dict}=Vector{Dict}())
     df = DataFrame(df_fields(indicators))
