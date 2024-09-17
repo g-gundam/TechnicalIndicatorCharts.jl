@@ -9,18 +9,18 @@ denominated_price(bb::BB)   = true
 denominated_price(srsi::StochRSI) = false
 
 
-"""    visualize(any::Any)
+"""$(TYPEDSIGNATURES)
 
 This is a visualize method that's a catch-all for indicators
 that haven't had a visualize method made for them yet.  For now,
-it returns an empty panel.
+it returns `missing`.
 """
 function visualize(unimplemented::Any, opts, df::DataFrame)
     @warn "Unimplemented Visualization" typeof(unimplemented)
     missing
 end
 
-"""    visualize(sma::SMA)
+"""$(TYPEDSIGNATURES)
 
 Return an lwc_line for visualizing an SMA indicator.
 """
@@ -40,6 +40,10 @@ function visualize(sma::SMA, opts, df::DataFrame)
     )
 end
 
+"""$(TYPEDSIGNATURES)
+
+Visualize EMA using 1 lwc_line.
+"""
 function visualize(ema::EMA, opts, df::DataFrame)
     start = ema.period
     name = indicator_fields(ema)[1]
@@ -56,6 +60,10 @@ function visualize(ema::EMA, opts, df::DataFrame)
     )
 end
 
+"""$(TYPEDSIGNATURES)
+
+Visualize HMA using 1 lwc_line.
+"""
 function visualize(hma::HMA, opts, df::DataFrame)
     start = hma.period
     name = indicator_fields(hma)[1]
@@ -72,6 +80,10 @@ function visualize(hma::HMA, opts, df::DataFrame)
     )
 end
 
+"""$(TYPEDSIGNATURES)
+
+Visualize RSI using 1 lwc_line.
+"""
 function visualize(rsi::RSI, opts, df::DataFrame)
     start = rsi.period + 1
     name = indicator_fields(rsi)[1]
@@ -95,6 +107,10 @@ function replace_missing_with(val, collection)
     map(n -> if ismissing(n) val else n end, collection)
 end
 
+"""$(TYPEDSIGNATURES)
+
+Visualize StochRSI using 2 lwc_lines.
+"""
 function visualize(srsi::StochRSI, opts, df::DataFrame)
     k_defaults = Dict(
         :label_name => "StochRSI K",
@@ -131,6 +147,10 @@ function visualize(srsi::StochRSI, opts, df::DataFrame)
     ]
 end
 
+"""$(TYPEDSIGNATURES)
+
+Visualize Bollinger Bands using 3 lwc_lines.
+"""
 function visualize(bb::BB, opts, df::DataFrame)
     start = bb.period
     upper_defaults = Dict(
@@ -171,6 +191,10 @@ function visualize(bb::BB, opts, df::DataFrame)
     ]
 end
 
+"""$(TYPEDSIGNATURES)
+
+Visualize a DataFrame using lwc_candlestick.
+"""
 function visualize(df::DataFrame, opts)
     candles = map(r -> LWCCandleChartItem(r.ts, r.o, r.h, r.l, r.c), eachrow(df))
     lwc_candlestick(
@@ -179,7 +203,7 @@ function visualize(df::DataFrame, opts)
     )
 end
 
-"""    make_panel(plots::Vector)
+"""$(TYPEDSIGNATURES)
 
 Wrap a Vector of LWCCharts in a panel.
 """
@@ -187,7 +211,7 @@ function make_panel(plots::Vector)
     lwc_panel(plots...)
 end
 
-"""    make_panel(chart::LWCChart)
+"""$(TYPEDSIGNATURES)
 
 Wrap a single LWCChart in a panel.
 """
@@ -195,7 +219,7 @@ function make_panel(chart::LWCChart)
     lwc_panel(chart)
 end
 
-"""    visualize(chart::Chart)
+"""$(TYPEDSIGNATURES)
 
 Return an LWCLayout that visualizes all the components in chart appropriately.
 """
