@@ -222,12 +222,17 @@ end
 """$(TYPEDSIGNATURES)
 
 Return an LWCLayout that visualizes all the components in chart appropriately.
+foo bar
 """
-function visualize(chart::Chart; min_height=550, mode=LWC_LOGARITHMIC)
+function visualize(chart::Chart;
+                   min_height=550,
+                   mode::LWC_PRICE_SCALE_MODE=LWC_LOGARITHMIC,
+                   up_color="#42a49a",
+                   down_color="#de5e57")
     opts = Dict(
         :label_name     => "$(chart.name) $(abbrev(chart.tf))",
-        :up_color       => "#52a49a",
-        :down_color     => "#de5e57",
+        :up_color       => up_color,
+        :down_color     => down_color,
         :border_visible => false,
         :price_scale_id => LWC_LEFT,
     )
