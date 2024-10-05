@@ -17,6 +17,7 @@ ReTest = "e0db7c4e-2690-44b9-bad6-7687da720f89"
 [compat]
 DataFramesMeta = "0.15"
 NanoDates = "0.3, 1"
+ReTest = "0.3"
 julia = "1"
 
 [extras]
