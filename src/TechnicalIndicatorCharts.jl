@@ -8,6 +8,7 @@ using DataFramesMeta
 using OnlineTechnicalIndicators
 using OnlineTechnicalIndicators: TechnicalIndicator
 using LightweightCharts
+using LightweightCharts.Charts: LWC_PRICE_SCALE_MODE
 using DocStringExtensions
 
 # Write your package code here.
