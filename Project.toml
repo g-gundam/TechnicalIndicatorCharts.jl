@@ -15,10 +15,15 @@ OnlineTechnicalIndicators = "dc2d07fb-478f-4566-8417-81bb3e5a7af1"
 ReTest = "e0db7c4e-2690-44b9-bad6-7687da720f89"
 
 [compat]
-DataFramesMeta = "0.15"
-NanoDates = "0.3, 1"
-ReTest = "0.3"
 julia = "1"
+Chain = "0.6"
+DataFrames = "1"
+DataFramesMeta = "0.15"
+DocStringExtensions = "0.9"
+LightweightCharts = "2"
+NanoDates = "0.3, 1"
+OnlineTechnicalIndicators = "0.1"
+ReTest = "0.3"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
