@@ -152,6 +152,8 @@ end
 """ $(SIGNATURES)
 
 Update a chart with a candle.
+When a candle is completed, return it.
+Otherwise, return nothing on update.
 """
 function update!(chart::Chart, c::Candle)
     # aggregation when tf > Minute(1)
@@ -169,10 +171,12 @@ function update!(chart::Chart, c::Candle)
         chart.ts = floor(c.ts, chart.tf)
         chart.candle = Candle(c.ts, c.o, c.h, c.l, c.c, c.v) # clone tf boundary candle to start fresh candle aggregation
         push_new_candle!(chart, c)
+        return Candle(c.ts, c.o, c.h, c.l, c.c, c.v) # clone it again to return the most recent completed candle
     else
         # normal case
         chart.candle = merge_candle!(chart.candle, c)
         update_last_candle!(chart, chart.candle)
+        return
     end
 end
 
