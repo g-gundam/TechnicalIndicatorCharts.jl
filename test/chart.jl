@@ -1,3 +1,5 @@
+using TechnicalIndicatorCharts
+
 @testset "foo" begin
     @test true
     @test true

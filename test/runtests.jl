@@ -1,2 +1,2 @@
-using Test
-include("tests.jl")
+using ReTest
+@run_tests verbose=true
