@@ -8,3 +8,29 @@
 The purpose of this library is to bring
 [OnlineTechnicalIndicators.jl](https://github.com/femtotrader/OnlineTechnicalIndicators.jl) and
 [LightweightCharts.jl](https://github.com/bhftbootcamp/LightweightCharts.jl) together.
+
+## Example
+
+```julia-repl
+julia> using TechnicalIndicatorCharts, LightweightCharts
+
+julia> golden_cross = chart(
+    "BTCUSD", Hour(4);
+    indicators = [
+        SMA{Float64}(;period=50),
+        SMA{Float64}(;period=200)
+    ],
+    visuals = [
+        Dict(
+            :label_name => "SMA 50",
+            :line_color => "#E072A4",
+            :line_width => 2
+        ),
+        Dict(
+            :label_name => "SMA 200",
+            :line_color => "#3D3B8E",
+            :line_width => 5
+        )
+    ]
+)
+```
