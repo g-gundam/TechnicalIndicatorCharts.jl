@@ -1,2 +1,2 @@
-using ReTest
+using TidyTest
 @run_tests verbose=true
