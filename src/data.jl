@@ -149,7 +149,7 @@ function update_last_candle!(chart::Chart, c::Candle)
     row.v = c.v
 end
 
-""" $(SIGNATURES)
+"""$(TYPEDSIGNATURES)
 
 Update a chart with a candle.
 When a candle is completed, return it.
