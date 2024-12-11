@@ -116,12 +116,12 @@ export indicator_fields
 export indicator_fields_values
 
 # for ease of debugging, I'm temporarily export these.
-export df_fields
-export extract_value
-export merge_candle!
-export flatten_indicator_values
-export push_new_candle!
-export update_last_candle!
+# export df_fields
+# export extract_value
+# export merge_candle!
+# export flatten_indicator_values
+# export push_new_candle!
+# export update_last_candle!
 
 
 # visualization
