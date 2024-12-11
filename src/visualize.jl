@@ -222,7 +222,6 @@ end
 """$(TYPEDSIGNATURES)
 
 Return an LWCLayout that visualizes all the components in chart appropriately.
-foo bar
 """
 function visualize(chart::Chart;
                    min_height=550,
