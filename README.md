@@ -11,7 +11,8 @@ The purpose of this library is to bring
 ## Example
 
 ```julia
-using TechnicalIndicatorCharts, LightweightCharts
+using OnlineTechnicalIndicators
+using TechnicalIndicatorCharts
 
 golden_cross_chart = chart(
     "BTCUSD", Hour(4);
@@ -45,7 +46,9 @@ Adding new data to the chart is done with the `update!(chart, candle)` function.
 ## Visualization
 
 ```julia
-# TODO
+using LightweightCharts
+
+lwc_show(visualize(golden_cross_chart))
 ```
 
 ## Supported Indicators
