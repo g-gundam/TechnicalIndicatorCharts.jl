@@ -17,12 +17,12 @@ using TechnicalIndicatorCharts
 golden_cross_chart = chart(
     "BTCUSD", Hour(4);
     indicators = [
-        SMA{Float64}(;period=50),
+        SMA{Float64}(;period=50),         # Setup indicators
         SMA{Float64}(;period=200)
     ],
     visuals = [
         Dict(
-            :label_name => "SMA 50",
+            :label_name => "SMA 50",      # Describe how to draw indicators
             :line_color => "#E072A4",
             :line_width => 2
         ),
