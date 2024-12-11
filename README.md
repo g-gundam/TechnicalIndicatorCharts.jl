@@ -10,10 +10,10 @@ The purpose of this library is to bring
 
 ## Example
 
-```julia-repl
-julia> using TechnicalIndicatorCharts, LightweightCharts
+```julia
+using TechnicalIndicatorCharts, LightweightCharts
 
-julia> golden_cross = chart(
+golden_cross_chart = chart(
     "BTCUSD", Hour(4);
     indicators = [
         SMA{Float64}(;period=50),
@@ -38,12 +38,12 @@ julia> golden_cross = chart(
 
 Adding new data to the chart is done with the `update!(chart, candle)` function.
 
-```julia-repl
+```julia
 # TODO
 ```
 
 ## Visualization
 
-```julia-repl
-TODO
+```julia
+# TODO
 ```
