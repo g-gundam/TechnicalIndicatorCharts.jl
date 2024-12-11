@@ -228,29 +228,3 @@ function chart(name, tf; indicators::Vector=[], visuals::Vector{<:Dict}=Vector{D
     candle = missing
     return Chart(;name, tf, df, indicators, visuals, ts, candle)
 end
-
-"""    random_candles(tf, n; start)
-
-This belongs somewhere in ~/hak/trading, but it can live here for now.
-"""
-function random_candles(tf, n;
-                        start = round(now(), tf),
-                        open = 1000.00,
-                        volatility = -0.05:0.01:0.05)
-    start
-    res = []
-    for i in 0:n-1
-        t = start + (i * tf)
-        v = rand(volatility, 3)
-        close = open + (open * v[1])
-        high = open + (open * abs(v[2]))
-        low = close - (close * abs(v[3]))
-        # @info "vals" open high low close
-        c = Candle(t, open, high, low, close, (100 * v[1]) + 100)
-        push!(res, c)
-        open = close
-    end
-    res
-end
-
-export random_candles
