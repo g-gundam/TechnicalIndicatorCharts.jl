@@ -107,3 +107,5 @@ lwc_show(visualize(golden_cross_chart))
 - [ ] VWMA
 - [ ] WMA
 - [ ] ZLEMA
+
+See also:  [Indicators support - OnlineTechnicalIndicators.jl](https://femtotrader.github.io/OnlineTechnicalIndicators.jl/dev/indicators_support/)
