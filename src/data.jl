@@ -38,7 +38,7 @@ function indicator_fields_count(ind::OnlineTechnicalIndicators.TechnicalIndicato
     @chain ind typeof fieldtypes (ts -> ts[1])(_) getproperty(_, :b) fieldcount
 end
 
-"""$(SIGNATURES)
+"""$(TYPEDSIGNATURES)
 
 Extract values from an indicator instance.
 """
@@ -59,7 +59,7 @@ function df_fields(indicators)
     map(k -> ifelse(k == :ts, k=>DateTime[], k=>Union{Missing,Float64}[]), combined)
 end
 
-"""$(SIGNATURES)
+"""$(TYPEDSIGNATURES)
 
 Extract values out of an indicators value struct.  This is only intended to be used
 for indicators that emit multiple values per tick.
@@ -78,7 +78,7 @@ function extract_value(value)
     res
 end
 
-"""$(SIGNATURES)
+"""$(TYPEDSIGNATURES)
 
 If last candle is not provided, construct a new candle with the given OHLCV data.
 If last candle is provided, mutate last_candle such that it's HLCV are updated.
@@ -100,7 +100,7 @@ function flatten_indicator_values(vs)
     Iterators.flatmap(x -> ifelse(ismissing(x), (missing,), x), vs)
 end
 
-"""$(SIGNATURES)
+"""$(TYPEDSIGNATURES)
 
 This is meant to be called on timeframe boundaries to onto the chart's
 dataframe.  It also does indicator calculation at this time.
@@ -136,7 +136,7 @@ function push_new_candle!(chart::Chart, c::Candle)
     ))
 end
 
-"""$(SIGNATURES)
+"""$(TYPEDSIGNATURES)
 
 This updates the HLCV values of the last row of the chart's DataFrame
 when we're not at a chart.tf boundary.
