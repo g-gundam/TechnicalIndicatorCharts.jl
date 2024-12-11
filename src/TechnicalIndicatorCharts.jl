@@ -355,9 +355,106 @@ export indicator_fields_values
 
 
 # visualization
-# - a function for each indicator
-# - exported
-include("./visualize.jl")
+
+# - If an indicator is denominated in price,     it gets plotted along with price in the same panel.
+# - If an indicator is not denominated in price, it gets plotted in its own panel.
+denominated_price(any::Any) = false # If we don't know, assume false.
+
+"""$(TYPEDSIGNATURES)
+
+This is a visualize method that's a catch-all for indicators
+that haven't had a visualize method made for them yet.  For now,
+it returns `missing`.
+"""
+function visualize(unimplemented::Any, opts, df::DataFrame)
+    @warn "Unimplemented Visualization" typeof(unimplemented)
+    missing
+end
+
+include("BB.jl")
+include("EMA.jl")
+include("HMA.jl")
+include("RSI.jl")
+include("SMA.jl")
+include("StochRSI.jl")
+
+"""$(TYPEDSIGNATURES)
+
+Visualize a DataFrame using lwc_candlestick.
+"""
+function visualize(df::DataFrame, opts)
+    candles = map(r -> LWCCandleChartItem(r.ts, r.o, r.h, r.l, r.c), eachrow(df))
+    lwc_candlestick(
+        candles;
+        opts...
+    )
+end
+
+"""$(TYPEDSIGNATURES)
+
+Wrap a Vector of LWCCharts in a panel.
+"""
+function make_panel(plots::Vector)
+    lwc_panel(plots...)
+end
+
+"""$(TYPEDSIGNATURES)
+
+Wrap a single LWCChart in a panel.
+"""
+function make_panel(chart::LWCChart)
+    lwc_panel(chart)
+end
+
+"""$(TYPEDSIGNATURES)
+
+Return an LWCLayout that visualizes all the components in chart appropriately.
+"""
+function visualize(chart::Chart;
+                   min_height=550,
+                   mode::LWC_PRICE_SCALE_MODE=LWC_LOGARITHMIC,
+                   up_color="#42a49a",
+                   down_color="#de5e57")
+    opts = Dict(
+        :label_name     => "$(chart.name) $(abbrev(chart.tf))",
+        :up_color       => up_color,
+        :down_color     => down_color,
+        :border_visible => false,
+        :price_scale_id => LWC_LEFT,
+    )
+    candlesticks = visualize(chart.df, opts)
+    plots = visualize.(chart.indicators, chart.visuals, Ref(chart.df))
+    denom = denominated_price.(chart.indicators)
+    plots_price = []
+    plots_other = []
+    for (p, d) in zip(plots, denom) # If there's a better way, let me know.
+        ismissing(p) && continue
+        if d == 1
+            # denominated in price -- I couldn't use polymorphism here.
+            if typeof(p) <: Vector
+                push!(plots_price, p...)
+            else
+                push!(plots_price, p)
+            end
+        else
+            # not denominated in price
+            push!(plots_other, p)
+        end
+    end
+    @debug "plots_other" plots_other
+    return lwc_layout(
+        # indicators denominated in price all go in one panel along with the candlesticks.
+        lwc_panel(
+            candlesticks,
+            plots_price...;
+            mode
+        ),
+        # indicators that are not denominated in price get their own panel.
+        make_panel.(plots_other)...;
+        min_height
+    )
+end
+
 export visualize
 
 end
