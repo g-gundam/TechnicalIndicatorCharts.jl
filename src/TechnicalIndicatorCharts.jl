@@ -40,9 +40,8 @@ end
 export Candle
 export Chart
 
+
 # helpers
-# - abbrev
-# - private
 abbrev(ns::Nanosecond)  = "$(ns.value)ns"
 abbrev(us::Microsecond) = "$(us.value)us"
 abbrev(ms::Millisecond) = "$(ms.value)ms"
@@ -107,6 +106,7 @@ function Base.getindex(p::Padded, i::Int)
     end
 end
 
+
 # data calculation
 # - export update!
 include("./data.jl")
@@ -123,6 +123,7 @@ export flatten_indicator_values
 export push_new_candle!
 export update_last_candle!
 
+
 # visualization
 # - a function for each indicator
 # - exported
