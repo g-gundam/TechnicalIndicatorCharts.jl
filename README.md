@@ -47,3 +47,5 @@ Adding new data to the chart is done with the `update!(chart, candle)` function.
 ```julia
 # TODO
 ```
+
+## Indicators
