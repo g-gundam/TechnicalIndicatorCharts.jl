@@ -8,7 +8,7 @@ The purpose of this library is to bring
 [OnlineTechnicalIndicators.jl](https://github.com/femtotrader/OnlineTechnicalIndicators.jl) and
 [LightweightCharts.jl](https://github.com/bhftbootcamp/LightweightCharts.jl) together.
 
-## Example
+## Creating a Chart
 
 ```julia
 using OnlineTechnicalIndicators
@@ -35,7 +35,7 @@ golden_cross_chart = chart(
 )
 ```
 
-## Data
+## Feeding Your Chart Data
 
 Adding new data to the chart is done with the `update!(chart, candle)` function.
 
