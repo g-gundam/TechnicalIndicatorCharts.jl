@@ -33,3 +33,17 @@ julia> golden_cross = chart(
     ]
 )
 ```
+
+## Data
+
+Adding new data to the chart is done with the `update!(chart, candle)` function.
+
+```julia-repl
+# TODO
+```
+
+## Visualization
+
+```julia-repl
+TODO
+```
