@@ -48,4 +48,59 @@ Adding new data to the chart is done with the `update!(chart, candle)` function.
 # TODO
 ```
 
-## Indicators
+## Supported Indicators
+
+- [ ] AccuDist
+- [ ] ADX
+- [ ] ALMA
+- [ ] AO
+- [ ] Aroon
+- [ ] ATR
+- [x] BB
+- [ ] BOP
+- [ ] CCI
+- [ ] ChaikinOsc
+- [ ] ChandeKrollStop
+- [ ] CHOP
+- [ ] CoppockCurve
+- [ ] DEMA
+- [ ] DonchianChannels
+- [ ] DPO
+- [x] EMA
+- [ ] EMV
+- [ ] ForceIndex
+- [x] HMA
+- [ ] KAMA
+- [ ] KeltnerChannels
+- [ ] KST
+- [ ] KVO
+- [ ] MACD
+- [ ] MassIndex
+- [ ] McGinleyDynamic
+- [ ] MeanDev
+- [ ] OBV
+- [ ] ParabolicSAR
+- [ ] PivotsHL
+- [ ] ROC
+- [x] RSI
+- [ ] SFX
+- [x] SMA
+- [ ] SMMA
+- [ ] SOBV
+- [ ] STC
+- [ ] StdDev
+- [ ] Stoch
+- [x] StochRSI
+- [ ] SuperTrend
+- [ ] T3
+- [ ] TEMA
+- [ ] TRIX
+- [ ] TrueRange
+- [ ] TSI
+- [ ] TTM
+- [ ] UO
+- [ ] VTX
+- [ ] VWAP
+- [ ] VWMA
+- [ ] WMA
+- [ ] ZLEMA
