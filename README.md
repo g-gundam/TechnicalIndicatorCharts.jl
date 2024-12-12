@@ -15,7 +15,7 @@ using OnlineTechnicalIndicators
 using TechnicalIndicatorCharts
 
 golden_cross_chart = chart(
-    "BTCUSD", Hour(4);
+    "AAPL", Week(1);
     indicators = [
         SMA{Float64}(;period=50),         # Setup indicators
         SMA{Float64}(;period=200)
@@ -41,11 +41,7 @@ Adding new data to the chart is done with the `update!(chart, candle)` function.
 
 ```julia
 using MarketData
-aapl_chart = chart(
-  "AAPL", Month(1);
-  indicators=[HMA{Float64}(;period=55)],
-  visuals=[Dict()]
-)
+
 for row in eachrow(AAPL)
     c = Candle(
       ts=DateTime(row.timestamp),
@@ -55,11 +51,11 @@ for row in eachrow(AAPL)
       c=row.Close,
       v=row.Volume
     )
-    update!(aapl_chart, c)
+    update!(golden_cross_chart, c)
 end
 ```
 
-Notice that it took daily candles from `AAPL` and aggregated them into monthly candles.
+Notice that it took daily candles from `AAPL` and aggregated them into weekly candles.
 
 > The `update!` function was designed to consume low timeframe candles to incrementally build higher timeframe charts.  Imagine unfinished 1m candles from a websocket being consumed to generate multiple higher-timeframe views of a single market.  The hope was that this would facilitate realtime, multi-timeframe analysis.
 
