@@ -69,6 +69,8 @@ lwc_show(visualize(golden_cross_chart))
 golden_cross_chart |> visualize |> lwc_show
 ```
 
+![aapl](https://raw.githubusercontent.com/g-gundam/TechnicalIndicatorCharts.jl/refs/heads/main/lwc_show.png)
+
 ## Supported Indicators
 
 - [ ] AccuDist
