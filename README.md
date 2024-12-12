@@ -61,6 +61,8 @@ Notice that `update!` took daily candles from `AAPL` and aggregated them into we
 
 ## Visualization
 
+The `visualize` function will take a chart and generate something that `lwc_show` from [LightweightCharts.jl](https://github.com/bhftbootcamp/LightweightCharts.jl) can display.
+
 ```julia
 using LightweightCharts
 
