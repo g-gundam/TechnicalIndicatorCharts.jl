@@ -61,6 +61,8 @@ end
 
 Notice that it took daily candles from `AAPL` and aggregated them into monthly candles.
 
+> The `update!` function was designed to consume low timeframe candles to incrementally build higher timeframe charts.  Unfinished 1m candles from a websocket was what it was designed to consume.  The hope was that this would facilitate realtime, multi-timeframe analysis.
+
 ## Visualization
 
 ```julia
