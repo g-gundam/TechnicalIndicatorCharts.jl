@@ -40,8 +40,26 @@ golden_cross_chart = chart(
 Adding new data to the chart is done with the `update!(chart, candle)` function.
 
 ```julia
-# TODO
+using MarketData
+aapl_chart = chart(
+  "AAPL", Month(1);
+  indicators=[HMA{Float64}(;period=55)],
+  visuals=[Dict()]
+)
+for row in eachrow(AAPL)
+    c = Candle(
+      ts=DateTime(row.timestamp),
+      o=row.Open,
+      h=row.High,
+      l=row.Low,
+      c=row.Close,
+      v=row.Volume
+    )
+    update!(aapl_chart, c)
+end
 ```
+
+Notice that it took daily candles from `AAPL` and aggregated them into monthly candles.
 
 ## Visualization
 
@@ -49,6 +67,8 @@ Adding new data to the chart is done with the `update!(chart, candle)` function.
 using LightweightCharts
 
 lwc_show(visualize(golden_cross_chart))
+# Or
+golden_cross_chart |> visualize |> lwc_show
 ```
 
 ## Supported Indicators
