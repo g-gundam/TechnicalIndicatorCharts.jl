@@ -35,6 +35,27 @@ end
     # There is also some internal data that I use to keep track of computations in progress.
     ts::Union{DateTime,Missing}
     candle::Union{Candle,Missing}
+
+    # The docs for @kwdef said one inner constructor needs to be like this.
+    function Chart(name, tf, indicators, visuals, df, ts, candle)
+        new(name, tf, indicators, visuals, df, ts, candle)
+    end
+
+    function Chart(name, tf)
+        indicators = []
+        visuals = Vector{Dict}()
+        df = DataFrame(df_fields(indicators))
+        ts = missing
+        candle = missing
+        new(name, tf, indicators, visuals, df, ts, candle)
+    end
+
+    function Chart(name, tf; indicators, visuals)
+        df = DataFrame(df_fields(indicators))
+        ts = missing
+        candle = missing
+        new(name, tf, indicators, visuals, df, ts, candle)
+    end
 end
 
 export Candle
