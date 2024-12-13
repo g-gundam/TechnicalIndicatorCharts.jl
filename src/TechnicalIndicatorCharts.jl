@@ -24,7 +24,7 @@ using DocStringExtensions
     v::Float64
 end
 
-@kwdef mutable struct Chart
+mutable struct Chart
     # This is the user-facing data.
     name::AbstractString                     # name
     tf::Period                               # time frame
@@ -36,21 +36,7 @@ end
     ts::Union{DateTime,Missing}
     candle::Union{Candle,Missing}
 
-    # The docs for @kwdef said one inner constructor needs to be like this.
-    function Chart(name, tf, indicators, visuals, df, ts, candle)
-        new(name, tf, indicators, visuals, df, ts, candle)
-    end
-
-    function Chart(name, tf)
-        indicators = []
-        visuals = Vector{Dict}()
-        df = DataFrame(df_fields(indicators))
-        ts = missing
-        candle = missing
-        new(name, tf, indicators, visuals, df, ts, candle)
-    end
-
-    function Chart(name, tf; indicators, visuals)
+    function Chart(name::AbstractString, tf::Period; indicators=[], visuals=Vector{Dict}())
         df = DataFrame(df_fields(indicators))
         ts = missing
         candle = missing
