@@ -57,7 +57,7 @@ end
 
 Notice that `update!` took daily candles from `AAPL` and aggregated them into weekly candles.
 
-> The `update!` function was designed to consume low timeframe candles to incrementally build higher timeframe charts.  Imagine unfinished 1m candles from a websocket being consumed to generate multiple higher-timeframe views of a single market.  The hope was that this would facilitate realtime, multi-timeframe analysis.
+> The `update!` function was designed to consume low timeframe candles to incrementally build higher timeframe charts.  Imagine unfinished 1m candles from a websocket being consumed to generate multiple higher-timeframe charts for the same market.  The hope was that this would facilitate realtime, multi-timeframe analysis.
 
 ## Visualization
 
