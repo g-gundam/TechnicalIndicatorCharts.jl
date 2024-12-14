@@ -4,7 +4,7 @@ A library for
 visualizing [OnlineTechnicalIndicators.jl](https://github.com/femtotrader/OnlineTechnicalIndicators.jl) 
 using [LightweightCharts.jl](https://github.com/bhftbootcamp/LightweightCharts.jl)
 
-## First, what is a chart?
+## What is a Chart?
 
 A Chart is a mutable struct that has:
 
