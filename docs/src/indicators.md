@@ -63,10 +63,10 @@ You're also not limited to `lwc_line`.  You can use any visualization function s
 
 All indicator visualizations fall into one of these four categories.
 
-|                       | Denominated in Price | Not Denominated in Price |
-|-----------------------|----------------------|--------------------------|
-| Single Visual Element | EMA, HMA, SMA        | RSI                      |
-| Multi Visual Elements | BB                   | StochRSI                 |
+|                          | Denominated in Price | Not Denominated in Price |
+|--------------------------|----------------------|--------------------------|
+| Single Visual Element    | EMA, HMA, SMA        | RSI                      |
+| Multiple Visual Elements | BB                   | StochRSI                 |
 
 When implementing a new visualization, feel free to look at the
 [source](https://github.com/g-gundam/TechnicalIndicatorCharts.jl/tree/main/src)
