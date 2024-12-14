@@ -130,6 +130,6 @@ golden_cross_chart |> visualize |> lwc_show
 - [ ] WMA
 - [ ] ZLEMA
 
-See also:  [Indicators support - OnlineTechnicalIndicators.jl](https://femtotrader.github.io/OnlineTechnicalIndicators.jl/dev/indicators_support/)
+See Also:  [Indicators support - OnlineTechnicalIndicators.jl](https://femtotrader.github.io/OnlineTechnicalIndicators.jl/dev/indicators_support/)
 
 Help Wanted:  [Visualization Function Writers](https://g-gundam.github.io/TechnicalIndicatorCharts.jl/dev/indicators/)
