@@ -24,7 +24,7 @@ That's what the `Chart` struct aims to be.
 using OnlineTechnicalIndicators
 using TechnicalIndicatorCharts
 
-golden_cross_chart = chart(
+golden_cross_chart = Chart(
     "AAPL", Week(1);
     indicators = [
         SMA{Float64}(;period=50),         # Setup indicators
