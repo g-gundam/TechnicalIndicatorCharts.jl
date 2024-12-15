@@ -54,7 +54,7 @@ function visualize(sma::SMA, opts, df::DataFrame)
 end
 ```
 
-If you need to return more than one line, return it as a vector.
+If you need to return more than one line, return them in a vector.
 A good example of this is [BB.jl](https://github.com/g-gundam/TechnicalIndicatorCharts.jl/blob/main/src/BB.jl) which returns 3 lwc_lines.
 
 You're also not limited to `lwc_line`.  You can use any visualization function supported by [LightweightCharts.jl](https://bhftbootcamp.github.io/LightweightCharts.jl/dev/pages/charts/).
