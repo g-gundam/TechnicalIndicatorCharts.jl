@@ -12,12 +12,12 @@ function visualize(bb::BB, opts, df::DataFrame)
         :line_width => 3
     )
     upper_kwargs = merge(upper_defaults, opts[:upper])
-    central_defaults = Dict(
-        :label_name => "BB central",
+    middle_defaults = Dict(
+        :label_name => "BB middle",
         :line_color => "#FF715B",
         :line_width => 1
     )
-    central_kwargs = merge(central_defaults, opts[:central])
+    middle_kwargs = merge(middle_defaults, opts[:middle])
     lower_defaults = Dict(
         :label_name => "BB lower",
         :line_color => "#4C5454",
@@ -33,8 +33,8 @@ function visualize(bb::BB, opts, df::DataFrame)
         ),
         lwc_line(
             df.ts[start:end],
-            [df[!, :bb_central][start:end]...];
-            central_kwargs...
+            [df[!, :bb_middle][start:end]...];
+            middle_kwargs...
         ),
         lwc_line(
             df.ts[start:end],
