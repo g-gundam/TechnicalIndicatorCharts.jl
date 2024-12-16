@@ -18,7 +18,7 @@ function visualize(srsi::StochRSI, opts, df::DataFrame)
         :line_type  => LWC_CURVED
     )
     k_kwargs = merge(k_defaults, opts[:k])
-    k_start = findfirst(!ismissing, df[!, :stochrsi_k])
+    #k_start = findfirst(!ismissing, df[!, :stochrsi_k])
     d_defaults = Dict(
         :label_name => "StochRSI D",
         :line_color => "#FF6D00",
@@ -26,7 +26,7 @@ function visualize(srsi::StochRSI, opts, df::DataFrame)
         :line_type  => LWC_CURVED,
     )
     d_kwargs = merge(d_defaults, opts[:d])
-    d_start = findfirst(!ismissing, df[!, :stochrsi_d])
+    #d_start = findfirst(!ismissing, df[!, :stochrsi_d])
     #@info "start" k_start d_start
     k = replace_missing_with(0, df[!, :stochrsi_k])
     #k = Padded(df[!, :stochrsi_k])
