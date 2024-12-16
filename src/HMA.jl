@@ -9,7 +9,7 @@ function visualize(hma::HMA, opts::Union{AbstractDict,Nothing}, df::DataFrame)
     name = indicator_fields(hma)[1]
     kwargs = Dict(
         :label_name => "HMA $(hma.period)",
-        :line_color => "#B84A62",
+        :line_color => "#EAC435",
         :line_width => 2
     )
     if opts !== nothing
