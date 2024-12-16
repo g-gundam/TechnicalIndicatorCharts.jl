@@ -4,26 +4,34 @@ denominated_price(bb::BB)   = true
 
 Visualize Bollinger Bands using 3 lwc_lines.
 """
-function visualize(bb::BB, opts, df::DataFrame)
+function visualize(bb::BB, opts::Union{AbstractDict,Nothing}, df::DataFrame)
     start = bb.period
-    upper_defaults = Dict(
+    upper_kwargs = Dict(
         :label_name => "BB upper",
         :line_color => "#4C5454",
         :line_width => 3
     )
-    upper_kwargs = merge(upper_defaults, opts[:upper])
-    central_defaults = Dict(
+    central_kwargs = Dict(
         :label_name => "BB central",
         :line_color => "#FF715B",
         :line_width => 1
     )
-    central_kwargs = merge(central_defaults, opts[:central])
-    lower_defaults = Dict(
+    lower_kwargs = Dict(
         :label_name => "BB lower",
         :line_color => "#4C5454",
         :line_width => 2
     )
-    lower_kwargs = merge(lower_defaults, opts[:lower])
+    if opts !== nothing
+        if haskey(opts, :upper)
+            merge!(upper_kwargs, opts[:upper])
+        end
+        if haskey(opts, :central)
+            merge!(central_kwargs, opts[:central])
+        end
+        if haskey(opts, :lower)
+            merge!(lower_kwargs, opts[:lower])
+        end
+    end
     # [2024-07-12 Fri 08:08] This is the first visualization to combine multiple LWCCharts into one.
     [
         lwc_line(
