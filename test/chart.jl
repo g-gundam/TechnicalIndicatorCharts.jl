@@ -1,7 +1,9 @@
 using TechnicalIndicatorCharts
 
 @testset "chart" begin
-    include("helper/main.jl")
+    if !isdefined(Main, :sample_candles)
+        include("helper/main.jl")
+    end
 
     # Can a basic, no-indicator chart be constructed?
     @test Chart("ETHUSD", Hour(4)) isa Any

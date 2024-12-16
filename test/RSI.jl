@@ -1,7 +1,9 @@
 using TechnicalIndicatorCharts
 
 @testset "RSI" begin
-    include("helper/main.jl")
+    if !isdefined(Main, :sample_candles)
+        include("helper/main.jl")
+    end
     chart = Chart(
         "TEST", Minute(1),
         indicators=[RSI{Float64}(;period=5)],
