@@ -1,10 +1,8 @@
 using TechnicalIndicatorCharts
 
-@testset "foo" begin
-    @test true
-    @test true
-end
+@testset "chart" begin
+    include("helper/main.jl")
 
-@testset "bar" begin
-    @test true
+    # Can a basic, no-indicator chart be constructed?
+    @test Chart("ETHUSD", Hour(4)) isa Any
 end
