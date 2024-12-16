@@ -85,7 +85,7 @@ mutable struct Chart
     ts::Union{DateTime,Missing}
     candle::Union{Candle,Missing}
 
-    function Chart(name::AbstractString, tf::Period; indicators=[], visuals=Vector{Dict}())
+    function Chart(name::AbstractString, tf::Period; indicators=[], visuals::Vector=Vector{Union{AbstractDict,Nothing}}())
         df = DataFrame(df_fields(indicators))
         ts = missing
         candle = missing

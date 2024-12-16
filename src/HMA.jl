@@ -4,15 +4,17 @@ denominated_price(hma::HMA) = true
 
 Visualize HMA using 1 lwc_line.
 """
-function visualize(hma::HMA, opts, df::DataFrame)
+function visualize(hma::HMA, opts::Union{AbstractDict,Nothing}, df::DataFrame)
     start = hma.period
     name = indicator_fields(hma)[1]
-    defaults = Dict(
+    kwargs = Dict(
         :label_name => "HMA $(hma.period)",
         :line_color => "#B84A62",
         :line_width => 2
     )
-    kwargs = merge(defaults, Dict(opts))
+    if opts !== nothing
+        merge!(kwargs, opts)
+    end
     return lwc_line(
         df.ts[start:end],
         [df[!, name][start:end]...];
