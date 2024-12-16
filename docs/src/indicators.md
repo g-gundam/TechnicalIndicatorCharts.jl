@@ -25,8 +25,9 @@ denominated_price(rsi::RSI) = false
 
 A visualize function takes 3 parameters.
 
-1. An indicator
+1. An indicator instance
 2. A `Dict` of visualization options
+   + By convention, `nothing` is also allowed, and that means to use the defaults.
 3. A `DataFrame` containing all the values generated for the `Chart`
 
 Here's what SMA looks like.  It's one of the simplest indicators to
@@ -37,16 +38,18 @@ visualize, because it's a single line.
 
 Return an lwc_line for visualizing an SMA indicator.
 """
-function visualize(sma::SMA, opts, df::DataFrame)
+function visualize(sma::SMA, opts::Union{AbstractDict,Nothing}, df::DataFrame)
     start = sma.period
     name = indicator_fields(sma)[1]
-    defaults = Dict(
+    kwargs = Dict(
         :label_name => "SMA $(sma.period)",
         :line_color => "#B84A62",
         :line_width => 2
     )
-    kwargs = merge(defaults, Dict(opts))
-    return lwc_line(
+    if opts !== nothing                 # (opts == nothing) means use the defaults
+        merge!(kwargs, opts)
+    end
+    return lwc_line(                    # the end goal is to return an lwc visual
         df.ts[start:end],
         [df[!, name][start:end]...];
         kwargs...
