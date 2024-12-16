@@ -367,43 +367,7 @@ function update!(chart::Chart, dfr::DataFrameRow)
     update!(chart, c)
 end
 
-"""      chart(name, tf; indicators, visuals)
-
-Construct a Chart instance configured with the given indicators and visual parameters.
-
-# Example
-
-```julia-repl
-julia> golden_cross = chart(
-    "BTCUSD", Hour(4);
-    indicators = [
-        SMA{Float64}(;period=50),
-        SMA{Float64}(;period=200)
-    ],
-    visuals = [
-        Dict(
-            :label_name => "SMA 50",
-            :line_color => "#E072A4",
-            :line_width => 2
-        ),
-        Dict(
-            :label_name => "SMA 200",
-            :line_color => "#3D3B8E",
-            :line_width => 5
-        )
-    ]
-)
-```
-"""
-function chart(name, tf; indicators::Vector=[], visuals::Vector{<:Dict}=Vector{Dict}())
-    df = DataFrame(df_fields(indicators))
-    ts = missing
-    candle = missing
-    return Chart(;name, tf, df, indicators, visuals, ts, candle)
-end
-
 export update!
-export chart
 export indicator_fields
 export indicator_fields_values
 
