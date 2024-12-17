@@ -83,15 +83,16 @@ mutable struct Chart
     # This is the user-facing data.
     name::AbstractString                     # name
     tf::Period                               # time frame
-    indicators::Vector{TechnicalIndicator}   # indicators to add to the dataframe
-    visuals::Vector                          # visualization parameters for each indicator
+    indicators::AbstractVector{TechnicalIndicator}
+                                             # indicators to add to the dataframe
+    visuals::AbstractVector                  # visualization parameters for each indicator
     df::DataFrame                            # dataframe
 
     # There is also some internal data that I use to keep track of computations in progress.
     ts::Union{DateTime,Missing}
     candle::Union{Candle,Missing}
 
-    function Chart(name::AbstractString, tf::Period; indicators=[], visuals::Vector=Vector{Union{AbstractDict,Nothing}}())
+    function Chart(name::AbstractString, tf::Period; indicators=[], visuals::AbstractVector=Vector{Union{AbstractDict,Nothing}}())
         df = DataFrame(df_fields(indicators))
         ts = missing
         candle = missing
@@ -413,7 +414,7 @@ end
 
 Wrap a Vector of LWCCharts in a panel.
 """
-function make_panel(plots::Vector)
+function make_panel(plots::AbstractVector)
     lwc_panel(plots...)
 end
 
@@ -451,7 +452,7 @@ function visualize(chart::Chart;
         ismissing(p) && continue
         if d == 1
             # denominated in price -- I couldn't use polymorphism here.
-            if typeof(p) <: Vector
+            if typeof(p) <: AbstractVector
                 push!(plots_price, p...)
             else
                 push!(plots_price, p)
