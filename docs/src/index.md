@@ -54,12 +54,12 @@ using MarketData
 
 for row in eachrow(AAPL)
     c = Candle(
-      ts=DateTime(row.timestamp),
-      o=row.Open,
-      h=row.High,
-      l=row.Low,
-      c=row.Close,
-      v=row.Volume
+        ts=DateTime(row.timestamp),
+        o=row.Open,
+        h=row.High,
+        l=row.Low,
+        c=row.Close,
+        v=row.Volume
     )
     update!(golden_cross_chart, c)
 end
