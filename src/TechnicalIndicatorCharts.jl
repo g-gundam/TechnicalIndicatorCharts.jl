@@ -403,6 +403,7 @@ include("HMA.jl")
 include("RSI.jl")
 include("SMA.jl")
 include("StochRSI.jl")
+include("WMA.jl")
 
 """$(TYPEDSIGNATURES)
 

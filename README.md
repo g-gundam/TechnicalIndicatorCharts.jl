@@ -127,7 +127,7 @@ golden_cross_chart |> visualize |> lwc_show
 - [ ] VTX
 - [ ] VWAP
 - [ ] VWMA
-- [ ] WMA
+- [x] WMA
 - [ ] ZLEMA
 
 See Also:  [Indicators support - OnlineTechnicalIndicators.jl](https://femtotrader.github.io/OnlineTechnicalIndicators.jl/dev/indicators_support/)
