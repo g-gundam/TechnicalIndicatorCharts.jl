@@ -397,14 +397,6 @@ function visualize(unimplemented::Any, opts, df::DataFrame)
     missing
 end
 
-include("BB.jl")
-include("EMA.jl")
-include("HMA.jl")
-include("RSI.jl")
-include("SMA.jl")
-include("StochRSI.jl")
-include("WMA.jl")
-
 """$(TYPEDSIGNATURES)
 
 Visualize a DataFrame using lwc_candlestick.
@@ -481,6 +473,14 @@ function visualize(chart::Chart;
         min_height
     )
 end
+
+include("BB.jl")
+include("EMA.jl")
+include("HMA.jl")
+include("RSI.jl")
+include("SMA.jl")
+include("StochRSI.jl")
+include("WMA.jl")
 
 export visualize
 
