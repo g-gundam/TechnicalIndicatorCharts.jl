@@ -433,7 +433,8 @@ function visualize(chart::Chart;
                    min_height=550,
                    mode::LWC_PRICE_SCALE_MODE=LWC_LOGARITHMIC,
                    up_color="#42a49a",
-                   down_color="#de5e57")
+                   down_color="#de5e57",
+                   copyright=false)
     opts = Dict(
         :label_name     => "$(chart.name) $(abbrev(chart.tf))",
         :up_color       => up_color,
@@ -466,7 +467,8 @@ function visualize(chart::Chart;
         lwc_panel(
             candlesticks,
             plots_price...;
-            mode
+            mode,
+            copyright
         ),
         # indicators that are not denominated in price get their own panel.
         make_panel.(plots_other)...;
