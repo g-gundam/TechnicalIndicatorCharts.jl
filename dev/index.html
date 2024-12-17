@@ -24,16 +24,16 @@ golden_cross_chart = Chart(
 
 for row in eachrow(AAPL)
     c = Candle(
-      ts=DateTime(row.timestamp),
-      o=row.Open,
-      h=row.High,
-      l=row.Low,
-      c=row.Close,
-      v=row.Volume
+        ts=DateTime(row.timestamp),
+        o=row.Open,
+        h=row.High,
+        l=row.Low,
+        c=row.Close,
+        v=row.Volume
     )
     update!(golden_cross_chart, c)
 end</code></pre><p>Notice that <code>update!</code> took daily candles from <code>AAPL</code> and aggregated them into weekly candles.</p><blockquote><p>The <code>update!</code> function was designed to consume low timeframe candles to incrementally build higher timeframe charts.  Imagine unfinished 1m candles from a websocket being consumed to generate multiple higher-timeframe views of a single market.  The hope was that this would facilitate realtime, multi-timeframe analysis.</p></blockquote><h2 id="Visualization"><a class="docs-heading-anchor" href="#Visualization">Visualization</a><a id="Visualization-1"></a><a class="docs-heading-anchor-permalink" href="#Visualization" title="Permalink"></a></h2><p>The <code>visualize</code> function will take a chart and generate something that <code>lwc_show</code> from <a href="https://github.com/bhftbootcamp/LightweightCharts.jl">LightweightCharts.jl</a> can display.</p><pre><code class="language-julia hljs">using LightweightCharts
 
 lwc_show(visualize(golden_cross_chart))
 # Or
-golden_cross_chart |&gt; visualize |&gt; lwc_show</code></pre><p><img src="https://raw.githubusercontent.com/g-gundam/TechnicalIndicatorCharts.jl/refs/heads/main/lwc_show.png" alt="aapl"/></p></article><nav class="docs-footer"><a class="docs-footer-nextpage" href="indicators/">Indicators »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.8.0 on <span class="colophon-date" title="Tuesday 17 December 2024 23:24">Tuesday 17 December 2024</span>. Using Julia version 1.11.2.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+golden_cross_chart |&gt; visualize |&gt; lwc_show</code></pre><p><img src="https://raw.githubusercontent.com/g-gundam/TechnicalIndicatorCharts.jl/refs/heads/main/lwc_show.png" alt="aapl"/></p></article><nav class="docs-footer"><a class="docs-footer-nextpage" href="indicators/">Indicators »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.8.0 on <span class="colophon-date" title="Tuesday 17 December 2024 23:37">Tuesday 17 December 2024</span>. Using Julia version 1.11.2.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
