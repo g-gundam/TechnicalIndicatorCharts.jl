@@ -478,6 +478,7 @@ function visualize(chart::Chart;
 end
 
 include("BB.jl")
+include("DEMA.jl")
 include("EMA.jl")
 include("HMA.jl")
 include("RSI.jl")

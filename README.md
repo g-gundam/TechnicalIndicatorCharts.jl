@@ -88,7 +88,7 @@ golden_cross_chart |> visualize |> lwc_show
 - [ ] ChandeKrollStop
 - [ ] CHOP
 - [ ] CoppockCurve
-- [ ] DEMA
+- [x] DEMA
 - [ ] DonchianChannels
 - [ ] DPO
 - [x] EMA
