@@ -62,7 +62,7 @@ A good example of this is [BB.jl](https://github.com/g-gundam/TechnicalIndicator
 
 You're also not limited to `lwc_line`.  You can use any visualization function supported by [LightweightCharts.jl](https://bhftbootcamp.github.io/LightweightCharts.jl/dev/pages/charts/).
 
-# Examples
+### Examples
 
 All indicator visualizations fall into one of these four categories.
 
@@ -74,3 +74,14 @@ All indicator visualizations fall into one of these four categories.
 When implementing a new visualization, feel free to look at the
 [source](https://github.com/g-gundam/TechnicalIndicatorCharts.jl/tree/main/src)
 for these and use them as a starting point for your own work.
+
+## Finally
+
+- Add an `include` for your newly implemented indicator at the bottom of [src/TechnicalIndicatorCharts.jl](https://github.com/g-gundam/TechnicalIndicatorCharts.jl/blob/main/src/TechnicalIndicatorCharts.jl).
+- Add a test for your indicator.  A basic test that makes sure it doesn't crash when visualize is run is enough.
+- Mark that the indicator is done in the [README.md](https://github.com/g-gundam/TechnicalIndicatorCharts.jl/blob/main/README.md?plain=1) for this project.
+
+
+## Thanks
+
+Thanks to all future indicator visualization authors.
