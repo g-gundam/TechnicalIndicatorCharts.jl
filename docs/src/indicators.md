@@ -26,12 +26,15 @@ denominated_price(rsi::RSI) = false
 A visualize function takes 3 parameters.
 
 1. An indicator instance
-2. A `Dict` of visualization options
-   + By convention, `nothing` is also allowed, and that means to use the defaults.
+2. A `Dict` of visualization options.   By convention, `nothing` is also allowed, and that means to use the defaults.
 3. A `DataFrame` containing all the values generated for the `Chart`
 
-Here's what SMA looks like.  It's one of the simplest indicators to
+Its job is to return something that LightweightCharts knows how to draw.  The most common return value is
+an `lwc_line`.
+
+Here's what visualize for SMA looks like.  It's one of the simplest indicators to
 visualize, because it's a single line.
+
 
 ```julia
 """$(TYPEDSIGNATURES)
