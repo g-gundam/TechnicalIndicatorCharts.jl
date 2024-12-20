@@ -80,7 +80,7 @@ golden_cross_chart |> visualize |> lwc_show
 - [ ] ALMA
 - [ ] AO
 - [ ] Aroon
-- [ ] ATR
+- [ ] [ATR](https://www.tradingview.com/support/solutions/43000501823-average-true-range-atr/)
 - [x] BB
 - [ ] BOP
 - [ ] CCI

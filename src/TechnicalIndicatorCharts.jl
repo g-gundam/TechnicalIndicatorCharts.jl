@@ -485,6 +485,7 @@ function visualize(chart::Chart;
     )
 end
 
+include("ATR.jl")
 include("BB.jl")
 include("DEMA.jl")
 include("EMA.jl")
