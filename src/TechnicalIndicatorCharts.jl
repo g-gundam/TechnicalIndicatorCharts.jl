@@ -283,8 +283,16 @@ function push_new_candle!(chart::Chart, c::Candle)
     vs = map(chart.indicators) do ind
         # what kind of inputs does this indicator want?
         if ismultiinput(ind)
-            # TODO - feed it a whole candle instead
-            fit!(ind, c.c)
+            # feed it a whole candle instead
+            ohlcv = OHLCV(
+                c.o,
+                c.h,
+                c.l,
+                c.c;
+                volume=c.v,
+                time=c.ts
+            )
+            fit!(ind, ohlcv)
         else
             fit!(ind, c.c)
         end
