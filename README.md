@@ -81,20 +81,20 @@ golden_cross_chart |> visualize |> lwc_show
 - [ ] AO
 - [ ] Aroon
 - [x] [ATR](https://www.tradingview.com/support/solutions/43000501823-average-true-range-atr/)
-- [x] BB
+- [x] [BB](https://www.tradingview.com/support/solutions/43000501840-bollinger-bands-bb/)
 - [ ] BOP
 - [ ] CCI
 - [ ] ChaikinOsc
 - [ ] ChandeKrollStop
 - [ ] CHOP
 - [ ] CoppockCurve
-- [x] DEMA
+- [x] [DEMA](https://www.tradingview.com/support/solutions/43000589132-double-exponential-moving-average-ema/)
 - [ ] DonchianChannels
 - [ ] DPO
-- [x] EMA
+- [x] [EMA](https://www.tradingview.com/support/solutions/43000592270-exponential-moving-average/)
 - [ ] EMV
 - [ ] ForceIndex
-- [x] HMA
+- [x] [HMA](https://www.tradingview.com/support/solutions/43000589149-hull-moving-average/)
 - [ ] KAMA
 - [ ] KeltnerChannels
 - [ ] KST
@@ -107,15 +107,15 @@ golden_cross_chart |> visualize |> lwc_show
 - [ ] ParabolicSAR
 - [ ] PivotsHL
 - [ ] ROC
-- [x] RSI
+- [x] [RSI](https://www.tradingview.com/support/solutions/43000502338-relative-strength-index-rsi/)
 - [ ] SFX
-- [x] SMA
+- [x] [SMA](https://www.tradingview.com/support/solutions/43000696841-simple-moving-average/)
 - [ ] SMMA
 - [ ] SOBV
 - [ ] STC
 - [ ] StdDev
 - [ ] Stoch
-- [x] StochRSI
+- [x] [StochRSI](https://www.tradingview.com/support/solutions/43000502333-stochastic-rsi-stoch-rsi/)
 - [ ] SuperTrend
 - [ ] T3
 - [ ] TEMA
@@ -127,7 +127,7 @@ golden_cross_chart |> visualize |> lwc_show
 - [ ] VTX
 - [ ] VWAP
 - [ ] VWMA
-- [x] WMA
+- [x] [WMA](https://www.tradingview.com/support/solutions/43000594680-weighted-moving-average/)
 - [ ] ZLEMA
 
 See Also:  [Indicators support - OnlineTechnicalIndicators.jl](https://femtotrader.github.io/OnlineTechnicalIndicators.jl/dev/indicators_support/)
