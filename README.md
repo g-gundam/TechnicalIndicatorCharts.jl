@@ -77,7 +77,7 @@ golden_cross_chart |> visualize |> lwc_show
 
 - [ ] AccuDist
 - [ ] ADX
-- [ ] ALMA
+- [x] [ALMA](https://www.tradingview.com/support/solutions/43000594683-arnaud-legoux-moving-average/)
 - [ ] AO
 - [ ] Aroon
 - [x] [ATR](https://www.tradingview.com/support/solutions/43000501823-average-true-range-atr/)
