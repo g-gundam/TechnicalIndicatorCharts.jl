@@ -71,14 +71,67 @@ Notice that `update!` took daily candles from `AAPL` and aggregated them into we
 
 ## Visualization
 
-The `visualize` function will take a chart and generate something that `lwc_show` from [LightweightCharts.jl](https://github.com/bhftbootcamp/LightweightCharts.jl) can display.
+The `visualize` function will take a chart and generate something that [LightweightCharts.jl](https://github.com/bhftbootcamp/LightweightCharts.jl) can display.
+The next example will take the previous two examples and save the result as `golden_cross_example.html`.
 
-```julia
-using LightweightCharts
+```@example
+using OnlineTechnicalIndicators
+using              LightweightCharts
+using       TechnicalIndicatorCharts
 
-lwc_show(visualize(golden_cross_chart))
-# Or
-golden_cross_chart |> visualize |> lwc_show
+using MarketData
+
+golden_cross_chart = Chart(
+    "AAPL", Week(1);
+    indicators = [
+        SMA{Float64}(;period=50),         # Setup indicators
+        SMA{Float64}(;period=200)
+    ],
+    visuals = [
+        Dict(
+            :label_name => "SMA 50",      # Describe how to draw indicators
+            :line_color => "#E072A4",
+            :line_width => 2
+        ),
+        Dict(
+            :label_name => "SMA 200",
+            :line_color => "#3D3B8E",
+            :line_width => 5
+        )
+    ]
+)
+
+for row in eachrow(AAPL)
+    c = Candle(
+        ts=DateTime(row.timestamp),
+        o=row.Open,
+        h=row.High,
+        l=row.Low,
+        c=row.Close,
+        v=row.Volume
+    )
+    update!(golden_cross_chart, c)
+end
+
+lwc_save("golden_cross_example.html", visualize(golden_cross_chart));
+nothing #hide
 ```
 
-![aapl](https://raw.githubusercontent.com/g-gundam/TechnicalIndicatorCharts.jl/refs/heads/main/lwc_show.png)
+```@raw html
+<iframe src="./golden_cross_example.html" style="height:777px;width:100%;"></iframe>
+```
+
+!!! tip
+    - Zoom in and out with the gestures you're accustomed to.
+    - Click and drag the chart to scroll around.
+    - Clicking and dragging the price scale on the left will give you a fixed scale and disable the default autoscaling.
+      + Double click the price scale to re-enable autoscaling of price.
+    - Click on items in the legend on the top-left to toggle their visibility.
+
+### Notebooks
+
+If you were in a Pluto.jl or Jupyter notebook, use `visualize` to make the chart renderable.
+
+```julia
+visualize(golden_cross_chart)
+```
