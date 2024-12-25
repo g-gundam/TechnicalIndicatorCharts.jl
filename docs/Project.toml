@@ -1,3 +1,6 @@
 [deps]
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
+LightweightCharts = "d6998af1-87ca-4e7f-83d4-864c79a249fa"
+MarketData = "945b72a4-3b13-509d-9b46-1525bb5c06de"
+OnlineTechnicalIndicators = "dc2d07fb-478f-4566-8417-81bb3e5a7af1"
 TechnicalIndicatorCharts = "ffc6123f-ba44-4b2f-a8ce-46f3306b22af"
