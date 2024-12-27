@@ -11,7 +11,7 @@ A Chart is a mutable struct that has:
 - a name (typically of the asset like "BTCUSD" or "AAPL")
 - a timeframe (which controls how much time each candle on the chart represents)
 - a DataFrame to hold OHLCV values and indicator values
-- a Vector of `OnlineTechnicalIndicator`s to display on the chart.
+- a Vector of `TechnicalIndicator`s to display on the chart.
 - another Vector of display configuration for each indicator.
 
 If you were to go to [TradingView](https://tradingview.com/) and look at a chart, 
