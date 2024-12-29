@@ -103,7 +103,7 @@ golden_cross_chart |> visualize |> lwc_show
 - [ ] MassIndex
 - [ ] McGinleyDynamic
 - [ ] MeanDev
-- [ ] OBV
+- [x] [OBV](https://www.tradingview.com/support/solutions/43000502593-on-balance-volume-obv/)
 - [ ] ParabolicSAR
 - [ ] PivotsHL
 - [ ] ROC
