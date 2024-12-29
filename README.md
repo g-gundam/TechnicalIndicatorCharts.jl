@@ -96,7 +96,7 @@ golden_cross_chart |> visualize |> lwc_show
 - [ ] ForceIndex
 - [x] [HMA](https://www.tradingview.com/support/solutions/43000589149-hull-moving-average/)
 - [ ] KAMA
-- [ ] KeltnerChannels
+- [x] [KeltnerChannels](https://www.tradingview.com/support/solutions/43000502266-keltner-channels-kc/)
 - [ ] KST
 - [ ] KVO
 - [ ] MACD
