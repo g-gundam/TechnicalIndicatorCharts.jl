@@ -2,7 +2,7 @@ denominated_price(alma::ALMA) = true
 
 """$(TYPEDSIGNATURES)
 
-Return an lwc_line for visualizing an ALMA indicator.
+Visualize ALMA using 1 lwc_line.
 """
 function visualize(alma::ALMA, opts::Union{AbstractDict,Nothing}, df::DataFrame)
     name = indicator_fields(alma)[1]
