@@ -2,7 +2,7 @@ denominated_price(obv::OBV) = false
 
 """$(TYPEDSIGNATURES)
 
-Visualize OBV using 1 lwc_line.
+Visualize On Balance Volume (OBV) using 1 lwc_line.
 """
 function visualize(obv::OBV, opts::Union{AbstractDict,Nothing}, df::DataFrame)
     name = indicator_fields(obv)[1]
