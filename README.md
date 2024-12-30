@@ -110,7 +110,7 @@ golden_cross_chart |> visualize |> lwc_show
 - [x] [RSI](https://www.tradingview.com/support/solutions/43000502338-relative-strength-index-rsi/)
 - [ ] SFX
 - [x] [SMA](https://www.tradingview.com/support/solutions/43000696841-simple-moving-average/)
-- [ ] SMMA
+- [x] [SMMA](https://www.tradingview.com/support/solutions/43000591343-smoothed-moving-average/)
 - [ ] SOBV
 - [ ] STC
 - [ ] StdDev

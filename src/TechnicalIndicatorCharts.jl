@@ -495,6 +495,7 @@ include("KeltnerChannels.jl")
 include("OBV.jl")
 include("RSI.jl")
 include("SMA.jl")
+include("SMMA.jl")
 include("StochRSI.jl")
 include("WMA.jl")
 
