@@ -452,6 +452,7 @@ function visualize(chart::Chart;
         :price_scale_id => LWC_LEFT,
     )
     candlesticks = visualize(chart.df, opts)
+    # TODO: volume histogram
     plots = visualize.(chart.indicators, chart.visuals, Ref(chart.df))
     denom = denominated_price.(chart.indicators)
     plots_price = []
