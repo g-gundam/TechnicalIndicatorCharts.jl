@@ -101,7 +101,7 @@ golden_cross_chart |> visualize |> lwc_show
 - [ ] KVO
 - [ ] MACD
 - [ ] MassIndex
-- [ ] McGinleyDynamic
+- [x] [McGinleyDynamic](https://www.tradingview.com/support/solutions/43000589175-mcginley-dynamic/)
 - [ ] MeanDev
 - [x] [OBV](https://www.tradingview.com/support/solutions/43000502593-on-balance-volume-obv/)
 - [ ] ParabolicSAR
