@@ -499,6 +499,7 @@ include("RSI.jl")
 include("SMA.jl")
 include("SMMA.jl")
 include("StochRSI.jl")
+include("TSI.jl")
 include("WMA.jl")
 
 export visualize

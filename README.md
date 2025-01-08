@@ -121,7 +121,7 @@ golden_cross_chart |> visualize |> lwc_show
 - [ ] TEMA
 - [ ] TRIX
 - [ ] TrueRange
-- [ ] TSI
+- [x] [TSI](https://www.tradingview.com/support/solutions/43000592290-true-strength-index/)
 - [ ] TTM
 - [ ] UO
 - [ ] VTX
