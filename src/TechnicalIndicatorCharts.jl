@@ -376,6 +376,63 @@ function update!(chart::Chart, dfr::DataFrameRow)
     update!(chart, c)
 end
 
+# If we only have a price to go with, make a candle out of it.
+function update!(chart::Chart, ts::DateTime, price::Float64, volume::Float64=0.0)
+    # Cases?
+    # chart.candle is missing :: new candle
+    # chart.candle exists
+    #   ts is within bounds of chart.candle.ts :: derive candle from chart.candle + price
+    #   ts is out of bounds :: new candle
+    bounds_ts = floor(ts, chart.tf)
+    if ismissing(chart.candle)
+        # new candle
+        c = Candle(
+            ts=bounds_ts,
+            o=price,
+            h=price,
+            l=price,
+            c=price,
+            v=volume
+        )
+        update!(chart, c)
+    else
+        if bounds_ts > chart.candle.ts
+            # new candle
+            c = Candle(
+                ts=bounds_ts,
+                o=price,
+                h=price,
+                l=price,
+                c=price,
+                v=volume
+            )
+            update!(chart, c)
+        else
+            # merge with previous
+            c::Candle = if chart.candle.c < price
+                Candle(
+                    ts=chart.candle.ts,
+                    o=chart.candle.o,
+                    h=max(chart.candle.h, price),
+                    l=chart.candle.l,
+                    c=price,
+                    v=chart.candle.v+volume
+                )
+            else
+                Candle(
+                    ts=chart.candle.ts,
+                    o=chart.candle.o,
+                    h=chart.candle.h,
+                    l=min(chart.candle.l, price),
+                    c=price,
+                    v=chart.candle.v+volume
+                )
+            end
+            update!(chart, c)
+        end
+    end
+end
+
 export update!
 export indicator_fields
 export indicator_fields_values
