@@ -226,6 +226,10 @@ function indicator_fields_values(ind::OnlineTechnicalIndicators.TechnicalIndicat
     end
 end
 
+"""$(TYPEDSIGNATURES)
+
+Return a list of fields to be used in a DataFrame for chart values.
+"""
 function df_fields(indicators)
     base = (:ts, :o, :h, :l, :c, :v)
     fs = indicator_fields.(indicators) |> Iterators.flatten |> collect
