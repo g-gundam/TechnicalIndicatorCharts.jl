@@ -1,6 +1,6 @@
 # This file is machine-generated - editing it directly is not advised
 
-julia_version = "1.11.2"
+julia_version = "1.11.3"
 manifest_format = "2.0"
 project_hash = "22e6ed7abcce858e3d91d7c9ab553420d8287fc4"
 
@@ -197,9 +197,9 @@ version = "1.17.0+1"
 
 [[deps.LightweightCharts]]
 deps = ["Dates", "NanoDates", "Serde"]
-git-tree-sha1 = "c9ee490f9c6bc5769082521979ced6e6db2f1e5b"
+git-tree-sha1 = "fb61614325e994d09c527d8154d37610bf9fbfb4"
 uuid = "d6998af1-87ca-4e7f-83d4-864c79a249fa"
-version = "2.3.0"
+version = "2.3.1"
 
 [[deps.LinearAlgebra]]
 deps = ["Libdl", "OpenBLAS_jll", "libblastrampoline_jll"]
