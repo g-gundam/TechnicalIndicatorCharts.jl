@@ -531,7 +531,11 @@ function visualize(chart::Chart;
             push!(plots_other, p)
         end
     end
-    candlestick_h = 0.618
+    candlestick_h = if length(plots_others) > 0
+        0.618
+    else
+        1.0
+    end
     other_h = (1.0 - candlestick_h) / length(plots_other)
     return lwc_layout(
         # indicators denominated in price all go in one panel along with the candlesticks.
