@@ -531,7 +531,7 @@ function visualize(chart::Chart;
             push!(plots_other, p)
         end
     end
-    candlestick_h = if length(plots_others) > 0
+    candlestick_h = if length(plots_other) > 0
         0.618
     else
         1.0
