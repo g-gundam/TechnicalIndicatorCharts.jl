@@ -483,7 +483,7 @@ end
 
 Wrap a Vector of LWCCharts in a panel.
 """
-function make_panel(plots::AbstractVector)
+function make_panel(plots::AbstractVector; h::Float64)
     lwc_panel(plots...)
 end
 
@@ -491,7 +491,7 @@ end
 
 Wrap a single LWCChart in a panel.
 """
-function make_panel(chart::LWCChart)
+function make_panel(chart::LWCChart; h::Float64)
     lwc_panel(chart)
 end
 
@@ -532,15 +532,18 @@ function visualize(chart::Chart;
         end
     end
     @debug "plots_other" plots_other
+    candlestick_h = 0.5
+    other_h = candlestick_h / length(plots_other)
     return lwc_layout(
         # indicators denominated in price all go in one panel along with the candlesticks.
         lwc_panel(
             candlesticks,
             plots_price...;
-            mode
+            mode,
+            h=candlestick_h
         ),
         # indicators that are not denominated in price get their own panel.
-        make_panel.(plots_other)...;
+        make_panel.(plots_other; h)...;
         min_height
     )
 end
