@@ -187,9 +187,9 @@ version = "1.18.0+0"
 
 [[deps.LightweightCharts]]
 deps = ["Dates", "NanoDates", "Serde"]
-git-tree-sha1 = "39639592f8bdc613adabdb9cd1c24418fb0ea5e4"
+git-tree-sha1 = "902b8d1692d49a6dbbab7e243ad65c760e0c8547"
 uuid = "d6998af1-87ca-4e7f-83d4-864c79a249fa"
-version = "3.0.0"
+version = "3.1.1"
 
 [[deps.LinearAlgebra]]
 deps = ["Libdl", "OpenBLAS_jll", "libblastrampoline_jll"]
