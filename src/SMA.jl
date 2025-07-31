@@ -1,5 +1,9 @@
 denominated_price(sma::SMA) = true
 
+"""$(TYPEDSIGNATURES)
+
+Return the default visualization config for SMA.
+"""
 function config(sma::SMA)
     [lwc_line,
      Dict(
