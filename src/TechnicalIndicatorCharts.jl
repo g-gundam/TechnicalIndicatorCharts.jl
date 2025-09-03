@@ -4,7 +4,6 @@ using Dates
 using NanoDates
 using Chain
 using DataFrames
-using DataFramesMeta
 using OnlineTechnicalIndicators
 using OnlineTechnicalIndicators: TechnicalIndicator
 using LightweightCharts
