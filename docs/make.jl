@@ -22,4 +22,5 @@ makedocs(;
 deploydocs(;
     repo="github.com/g-gundam/TechnicalIndicatorCharts.jl",
     devbranch="main",
+    versions="v.#.#.#",
 )
