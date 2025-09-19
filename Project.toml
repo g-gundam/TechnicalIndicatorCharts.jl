@@ -1,7 +1,7 @@
 name = "TechnicalIndicatorCharts"
 uuid = "ffc6123f-ba44-4b2f-a8ce-46f3306b22af"
 authors = ["contributors"]
-version = "0.6.6"
+version = "0.6.7"
 
 [deps]
 Chain = "8be319e6-bccf-4806-a6f7-6fae938471bc"
