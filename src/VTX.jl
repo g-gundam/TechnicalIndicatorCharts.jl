@@ -24,8 +24,8 @@ function visualize(vtx::VTX, opts::Union{AbstractDict,Nothing}, df::DataFrame)
         end
     end
 
-    plus_values = replace_missing_with(0, df[!, :vtx_plus_vi])
-    minus_values = replace_missing_with(0, df[!, :vtx_minus_vi])
+    plus_values = replace_missing_with(0, df[!, :vtx_plus_vtx])
+    minus_values = replace_missing_with(0, df[!, :vtx_minus_vtx])
 
     [
         lwc_line(

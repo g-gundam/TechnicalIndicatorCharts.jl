@@ -17,7 +17,7 @@ function visualize(zlema::ZLEMA, opts::Union{AbstractDict,Nothing}, df::DataFram
     end
     return lwc_line(
         df.ts[start:end],
-        [df[!, name][start:end]...];
+        replace_missing_with(0, df[!, name][start:end]);
         kwargs...
     )
 end

@@ -33,7 +33,7 @@ function visualize(dc::DonchianChannels, opts::Union{AbstractDict,Nothing}, df::
     end
 
     upper_values = replace_missing_with(0, df[!, :donchianchannels_upper])
-    middle_values = replace_missing_with(0, df[!, :donchianchannels_middle])
+    middle_values = replace_missing_with(0, df[!, :donchianchannels_central])
     lower_values = replace_missing_with(0, df[!, :donchianchannels_lower])
 
     [

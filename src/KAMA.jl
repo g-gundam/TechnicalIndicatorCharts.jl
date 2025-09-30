@@ -17,7 +17,7 @@ function visualize(kama::KAMA, opts::Union{AbstractDict,Nothing}, df::DataFrame)
     end
     return lwc_line(
         df.ts[start:end],
-        [df[!, name][start:end]...];
+        replace_missing_with(0, df[!, name][start:end]);
         kwargs...
     )
 end
