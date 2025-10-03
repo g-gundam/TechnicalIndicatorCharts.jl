@@ -75,60 +75,60 @@ golden_cross_chart |> visualize |> lwc_show
 
 ## Supported Indicators
 
-- [ ] AccuDist
-- [ ] ADX
+- [x] [AccuDist](https://www.tradingview.com/support/solutions/43000501770-accumulation-distribution-adl/)
+- [x] [ADX](https://www.tradingview.com/support/solutions/43000589099-average-directional-index-adx/)
 - [x] [ALMA](https://www.tradingview.com/support/solutions/43000594683-arnaud-legoux-moving-average/)
-- [ ] AO
-- [ ] Aroon
+- [x] [AO](https://www.tradingview.com/support/solutions/43000501826-awesome-oscillator-ao/)
+- [x] [Aroon](https://www.tradingview.com/support/solutions/43000501801-aroon/)
 - [x] [ATR](https://www.tradingview.com/support/solutions/43000501823-average-true-range-atr/)
 - [x] [BB](https://www.tradingview.com/support/solutions/43000501840-bollinger-bands-bb/)
-- [ ] BOP
-- [ ] CCI
-- [ ] ChaikinOsc
-- [ ] ChandeKrollStop
-- [ ] CHOP
-- [ ] CoppockCurve
+- [x] [BOP](https://www.tradingview.com/support/solutions/43000589100-balance-of-power-bop/)
+- [x] [CCI](https://www.tradingview.com/support/solutions/43000502001-commodity-channel-index-cci/)
+- [x] [ChaikinOsc](https://www.tradingview.com/support/solutions/43000501979-chaikin-oscillator/)
+- [x] [ChandeKrollStop](https://www.tradingview.com/support/solutions/43000589105-chande-kroll-stop/)
+- [x] [CHOP](https://www.tradingview.com/support/solutions/43000589111-chop-zone/)
+- [x] [CoppockCurve](https://www.tradingview.com/support/solutions/43000589114-coppock-curve/)
 - [x] [DEMA](https://www.tradingview.com/support/solutions/43000589132-double-exponential-moving-average-ema/)
-- [ ] DonchianChannels
-- [ ] DPO
+- [x] [DonchianChannels](https://www.tradingview.com/support/solutions/43000502253-donchian-channels-dc/)
+- [x] [DPO](https://www.tradingview.com/support/solutions/43000502246-detrended-price-oscillator-dpo/)
 - [x] [EMA](https://www.tradingview.com/support/solutions/43000592270-exponential-moving-average/)
-- [ ] EMV
-- [ ] ForceIndex
+- [x] [EMV](https://www.tradingview.com/support/solutions/43000502256-ease-of-movement-eom/)
+- [x] [ForceIndex](https://www.tradingview.com/support/solutions/43000502259-elder-s-force-index-efi/)
 - [x] [HMA](https://www.tradingview.com/support/solutions/43000589149-hull-moving-average/)
-- [ ] KAMA
+- [x] [KAMA](https://www.tradingview.com/script/YoVbxCeX-Kaufman-s-Adaptive-Moving-Average-KAMA/)
 - [x] [KeltnerChannels](https://www.tradingview.com/support/solutions/43000502266-keltner-channels-kc/)
-- [ ] KST
-- [ ] KVO
-- [ ] MACD
-- [ ] MassIndex
+- [x] [KST](https://www.tradingview.com/support/solutions/43000502329-know-sure-thing-kst/)
+- [x] [KVO](https://www.tradingview.com/support/solutions/43000589157-klinger-oscillator/)
+- [x] [MACD](https://www.tradingview.com/support/solutions/43000502344-macd-moving-average-convergence-divergence/)
+- [x] [MassIndex](https://www.tradingview.com/support/solutions/43000589169-mass-index/)
 - [x] [McGinleyDynamic](https://www.tradingview.com/support/solutions/43000589175-mcginley-dynamic/)
-- [ ] MeanDev
+- [x] MeanDev
 - [x] [OBV](https://www.tradingview.com/support/solutions/43000502593-on-balance-volume-obv/)
-- [ ] ParabolicSAR
-- [ ] PivotsHL
-- [ ] ROC
+- [x] [ParabolicSAR](https://www.tradingview.com/support/solutions/43000502597-parabolic-sar-sar/)
+- [x] [PivotsHL](https://www.tradingview.com/support/solutions/43000589195-pivot-points-high-low/)
+- [x] [ROC](https://www.tradingview.com/support/solutions/43000502343-rate-of-change-roc/)
 - [x] [RSI](https://www.tradingview.com/support/solutions/43000502338-relative-strength-index-rsi/)
 - [ ] SFX
 - [x] [SMA](https://www.tradingview.com/support/solutions/43000696841-simple-moving-average/)
 - [x] [SMMA](https://www.tradingview.com/support/solutions/43000591343-smoothed-moving-average/)
-- [ ] SOBV
-- [ ] STC
-- [ ] StdDev
-- [ ] Stoch
+- [x] SOBV
+- [x] STC
+- [x] StdDev
+- [x] [Stoch](https://www.tradingview.com/support/solutions/43000502332-stochastic-stoch/)
 - [x] [StochRSI](https://www.tradingview.com/support/solutions/43000502333-stochastic-rsi-stoch-rsi/)
-- [ ] SuperTrend
-- [ ] T3
-- [ ] TEMA
-- [ ] TRIX
+- [x] [SuperTrend](https://www.tradingview.com/support/solutions/43000634738-supertrend/)
+- [x] [T3](https://www.tradingview.com/script/hvVCxPmR-Tillson-T3-Moving-Average-improved/)
+- [x] [TEMA](https://www.tradingview.com/support/solutions/43000591346-triple-ema/)
+- [x] [TRIX](https://www.tradingview.com/support/solutions/43000502331-trix/)
 - [ ] TrueRange
 - [x] [TSI](https://www.tradingview.com/support/solutions/43000592290-true-strength-index/)
-- [ ] TTM
-- [ ] UO
-- [ ] VTX
-- [ ] VWAP
-- [ ] VWMA
+- [x] TTM
+- [x] [UO](https://www.tradingview.com/support/solutions/43000502328-ultimate-oscillator-uo/)
+- [x] [VTX](https://www.tradingview.com/support/solutions/43000591352-vortex-indicator/)
+- [x] [VWAP](https://www.tradingview.com/support/solutions/43000502018-volume-weighted-average-price-vwap/)
+- [x] [VWMA](https://www.tradingview.com/support/solutions/43000592293-volume-weighted-moving-average-vwma/)
 - [x] [WMA](https://www.tradingview.com/support/solutions/43000594680-weighted-moving-average/)
-- [ ] ZLEMA
+- [x] ZLEMA
 
 See Also:  [Indicators support - OnlineTechnicalIndicators.jl](https://femtotrader.github.io/OnlineTechnicalIndicators.jl/dev/indicators_support/)
 
