@@ -76,8 +76,8 @@ The next example will take the previous two examples and save the result as `gol
 
 ```@example
 using OnlineTechnicalIndicators
-using              LightweightCharts
 using       TechnicalIndicatorCharts
+using              LightweightCharts
 
 using MarketData
 
