@@ -123,7 +123,7 @@ function abbrev(canon::Dates.CompoundPeriod; minimum=Minute)
     end
 end
 
-"""    abbrev(p::Period)
+"""    abbrev(p::Period) -> String
 
 Return an abbreviated string representation of the given period.
 
@@ -136,7 +136,8 @@ abbrev(Day(1))  # "1d"
 """
 abbrev(p::Period)
 
-"""
+"""$(TYPEDSIGNATURES)
+
 This is a wrapper around `OnlineTechnicalIndicators.ismultiinput` that takes
 any instance of a TechnicalIndicator and digs out its unparametrized type before running
 the original ismultiinput method.
@@ -146,7 +147,8 @@ function ismultiinput(i::TechnicalIndicator)
     OnlineTechnicalIndicators.ismultiinput(t.name.wrapper)
 end
 
-"""
+"""$(TYPEDSIGNATURES)
+
 This is a wrapper around `OnlineTechnicalIndicators.ismultioutput` that takes
 any instance of a TechnicalIndicator and digs out its unparametrized type before running
 the original ismultioutput method.
