@@ -55,7 +55,7 @@ golden_cross_chart = Chart(
         SMA{Float64}(;period=50),         # Setup indicators
         SMA{Float64}(;period=200)
     ],
-    visuals = [
+    visuals = [                           # Passing in nothing will make it use defaults.
         nothing,
         nothing
     ]
