@@ -1,10 +1,3 @@
-# First, an Apology
-
-There is a very high chance that the indicator you want to visualize
-has not been implemented yet.  So far, I've only implemented the few
-indicators that I personally use.  Fortunately, new indicator
-visualizations are easy to implement.
-
 # How to Implement a New Indicator Visualization
 
 ## Implement a `denominated_price` function.
