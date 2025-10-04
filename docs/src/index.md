@@ -45,6 +45,23 @@ golden_cross_chart = Chart(
 )
 ```
 
+Alternatively, if you don't want to specify visual parameters and are fine with
+the defaults, you may pass in `nothing` instead.
+
+```julia
+golden_cross_chart = Chart(
+    "AAPL", Week(1);
+    indicators = [
+        SMA{Float64}(;period=50),         # Setup indicators
+        SMA{Float64}(;period=200)
+    ],
+    visuals = [
+        nothing,
+        nothing
+    ]
+)
+```
+
 ## Feeding Your Chart Data
 
 Adding new data to the chart is done with the `update!(chart, candle)` function.
