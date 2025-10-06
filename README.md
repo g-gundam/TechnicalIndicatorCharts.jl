@@ -103,6 +103,7 @@ golden_cross_chart |> visualize |> lwc_show
 - [x] [MassIndex](https://www.tradingview.com/support/solutions/43000589169-mass-index/)
 - [x] [McGinleyDynamic](https://www.tradingview.com/support/solutions/43000589175-mcginley-dynamic/)
 - [x] MeanDev
+- [ ] NATR
 - [x] [OBV](https://www.tradingview.com/support/solutions/43000502593-on-balance-volume-obv/)
 - [x] [ParabolicSAR](https://www.tradingview.com/support/solutions/43000502597-parabolic-sar-sar/)
 - [x] [PivotsHL](https://www.tradingview.com/support/solutions/43000589195-pivot-points-high-low/)
