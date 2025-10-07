@@ -16,8 +16,9 @@ function visualize(macd::MACD, opts::Union{AbstractDict,Nothing}, df::DataFrame)
         :line_width => 2
     )
     histogram_kwargs = Dict(
-        :label_name => "Histogram",
-        :color => "#26A69A"
+        :label_name     => "Histogram",
+        :color          => "#26A69A",
+        :color_negative => "#DB7F8E"
     )
     if opts !== nothing
         if haskey(opts, :macd)
@@ -33,16 +34,19 @@ function visualize(macd::MACD, opts::Union{AbstractDict,Nothing}, df::DataFrame)
 
     macd_values = replace_missing_with(0, df[!, :macd_macd])
     signal_values = replace_missing_with(0, df[!, :macd_signal])
-    #histogram_values = replace_missing_with(0, df[!, :macd_histogram])
     histogram_values = map(df.ts, df.macd_histogram) do ts, h
         val = if ismissing(h) 0.0 else h end
         kwargs = if val < 0
-            Dict(:color => "#DB7F8E")
+            # negative red
+            Dict(:color => histogram_kwargs[:color_negative])
         else
+            # postivie green
             Dict(:color => histogram_kwargs[:color])
         end
         LWCSimpleChartItem(ts, val; kwargs...)
     end
+    # remove :color_negative before passing to lwc_histogram
+    new_histogram_kwargs = @chain histogram_kwargs pairs filter(kv -> kv[1] != :color_negative, _)
 
     [
         lwc_line(
@@ -57,7 +61,7 @@ function visualize(macd::MACD, opts::Union{AbstractDict,Nothing}, df::DataFrame)
         ),
         lwc_histogram(
             histogram_values;
-            histogram_kwargs...
+            new_histogram_kwargs...
         )
     ]
 end
