@@ -2,7 +2,7 @@
 
 julia_version = "1.12.0"
 manifest_format = "2.0"
-project_hash = "0718cbf3fd2955b6efb6f6288c5bf0f97a121817"
+project_hash = "d06f603122d00d886bb9a9d6185dabb13a8d9b93"
 
 [[deps.AbstractTrees]]
 git-tree-sha1 = "2d9c9a55f9c93e8887ad391fbae72f8ef55e1177"
@@ -418,7 +418,7 @@ version = "1.12.1"
 deps = ["Chain", "DataFrames", "DataStructures", "Dates", "DocStringExtensions", "LightweightCharts", "NanoDates", "OnlineTechnicalIndicators", "TidyTest"]
 path = "."
 uuid = "ffc6123f-ba44-4b2f-a8ce-46f3306b22af"
-version = "0.6.9"
+version = "1.0.1"
 
 [[deps.Test]]
 deps = ["InteractiveUtils", "Logging", "Random", "Serialization"]
